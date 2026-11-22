@@ -1,0 +1,2212 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth dark"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Book Interaktif: Literasi Digital Kelas VII</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            paper: {
+              light: '#FAF8F5',
+              card: '#FFFFFF',
+              dark: '#0F172A',
+              darkCard: '#1E293B',
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* Gaya khusus untuk nuansa buku elektronik interaktif */
+    body {
+      font-family: 'Inter', sans-serif;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    /* Efek bayangan halaman buku */
+    .book-page-shadow {
+      box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.08), 0 4px 12px -2px rgba(15, 23, 42, 0.04);
+    }
+    .dark .book-page-shadow {
+      box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.45);
+    }
+
+    /* Animasi transisi antar halaman buku */
+    .page-enter {
+      animation: pageFadeSlide 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes pageFadeSlide {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Custom scrollbar yang rapi */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(100, 116, 139, 0.35);
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(100, 116, 139, 0.55);
+    }
+  </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:Inter, sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.pointer-events-auto{pointer-events:auto}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0px}.-bottom-6{bottom:-1.5rem}.-right-6{right:-1.5rem}.bottom-5{bottom:1.25rem}.right-5{right:1.25rem}.top-0{top:0px}.z-10{z-index:10}.z-40{z-index:40}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.my-auto{margin-top:auto;margin-bottom:auto}.mb-1{margin-bottom:0.25rem}.mb-1\.5{margin-bottom:0.375rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-5{margin-bottom:1.25rem}.mb-6{margin-bottom:1.5rem}.mb-7{margin-bottom:1.75rem}.mb-8{margin-bottom:2rem}.mt-0\.5{margin-top:0.125rem}.mt-1{margin-top:0.25rem}.mt-1\.5{margin-top:0.375rem}.mt-2{margin-top:0.5rem}.mt-3{margin-top:0.75rem}.mt-4{margin-top:1rem}.mt-5{margin-top:1.25rem}.mt-8{margin-top:2rem}.mr-1\.5{margin-right:0.375rem}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-1\.5{height:0.375rem}.h-11{height:2.75rem}.h-2{height:0.5rem}.h-4{height:1rem}.h-40{height:10rem}.h-5{height:1.25rem}.h-9{height:2.25rem}.h-2\.5{height:0.625rem}.max-h-48{max-height:12rem}.max-h-\[92vh\]{max-height:92vh}.min-h-screen{min-height:100vh}.w-11{width:2.75rem}.w-2{width:0.5rem}.w-4{width:1rem}.w-40{width:10rem}.w-5{width:1.25rem}.w-9{width:2.25rem}.w-full{width:100%}.w-2\.5{width:0.625rem}.w-6{width:1.5rem}.min-w-0{min-width:0px}.max-w-2xl{max-width:42rem}.max-w-3xl{max-width:48rem}.max-w-4xl{max-width:56rem}.max-w-5xl{max-width:64rem}.max-w-md{max-width:28rem}.max-w-none{max-width:none}.max-w-sm{max-width:24rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite}.cursor-pointer{cursor:pointer}.select-none{-webkit-user-select:none;user-select:none}.list-inside{list-style-position:inside}.list-decimal{list-style-type:decimal}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1\.5{gap:0.375rem}.gap-2{gap:0.5rem}.gap-2\.5{gap:0.625rem}.gap-3{gap:0.75rem}.gap-3\.5{gap:0.875rem}.gap-4{gap:1rem}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-2\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.625rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.625rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.25rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.scroll-smooth{scroll-behavior:smooth}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.rounded{border-radius:0.25rem}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.rounded-md{border-radius:0.375rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-l-4{border-left-width:4px}.border-t{border-top-width:1px}.border-amber-200\/70{border-color:rgb(253 230 138 / 0.7)}.border-amber-300\/70{border-color:rgb(252 211 77 / 0.7)}.border-blue-200{--tw-border-opacity:1;border-color:rgb(191 219 254 / var(--tw-border-opacity, 1))}.border-blue-200\/70{border-color:rgb(191 219 254 / 0.7)}.border-blue-600{--tw-border-opacity:1;border-color:rgb(37 99 235 / var(--tw-border-opacity, 1))}.border-emerald-200{--tw-border-opacity:1;border-color:rgb(167 243 208 / var(--tw-border-opacity, 1))}.border-emerald-200\/70{border-color:rgb(167 243 208 / 0.7)}.border-emerald-200\/80{border-color:rgb(167 243 208 / 0.8)}.border-emerald-300{--tw-border-opacity:1;border-color:rgb(110 231 183 / var(--tw-border-opacity, 1))}.border-indigo-100{--tw-border-opacity:1;border-color:rgb(224 231 255 / var(--tw-border-opacity, 1))}.border-indigo-200{--tw-border-opacity:1;border-color:rgb(199 210 254 / var(--tw-border-opacity, 1))}.border-indigo-200\/80{border-color:rgb(199 210 254 / 0.8)}.border-rose-200{--tw-border-opacity:1;border-color:rgb(254 205 211 / var(--tw-border-opacity, 1))}.border-rose-200\/70{border-color:rgb(254 205 211 / 0.7)}.border-slate-100{--tw-border-opacity:1;border-color:rgb(241 245 249 / var(--tw-border-opacity, 1))}.border-slate-200{--tw-border-opacity:1;border-color:rgb(226 232 240 / var(--tw-border-opacity, 1))}.border-slate-200\/70{border-color:rgb(226 232 240 / 0.7)}.border-slate-200\/80{border-color:rgb(226 232 240 / 0.8)}.border-slate-200\/90{border-color:rgb(226 232 240 / 0.9)}.border-slate-300{--tw-border-opacity:1;border-color:rgb(203 213 225 / var(--tw-border-opacity, 1))}.border-slate-800{--tw-border-opacity:1;border-color:rgb(30 41 59 / var(--tw-border-opacity, 1))}.border-teal-200\/70{border-color:rgb(153 246 228 / 0.7)}.border-amber-300{--tw-border-opacity:1;border-color:rgb(252 211 77 / var(--tw-border-opacity, 1))}.border-emerald-500{--tw-border-opacity:1;border-color:rgb(16 185 129 / var(--tw-border-opacity, 1))}.bg-paper-light{--tw-bg-opacity:1;background-color:rgb(250 248 245 / var(--tw-bg-opacity, 1))}.bg-amber-100{--tw-bg-opacity:1;background-color:rgb(254 243 199 / var(--tw-bg-opacity, 1))}.bg-amber-100\/80{background-color:rgb(254 243 199 / 0.8)}.bg-amber-50\/70{background-color:rgb(255 251 235 / 0.7)}.bg-blue-100{--tw-bg-opacity:1;background-color:rgb(219 234 254 / var(--tw-bg-opacity, 1))}.bg-blue-50{--tw-bg-opacity:1;background-color:rgb(239 246 255 / var(--tw-bg-opacity, 1))}.bg-blue-50\/70{background-color:rgb(239 246 255 / 0.7)}.bg-blue-50\/80{background-color:rgb(239 246 255 / 0.8)}.bg-emerald-100{--tw-bg-opacity:1;background-color:rgb(209 250 229 / var(--tw-bg-opacity, 1))}.bg-emerald-50\/70{background-color:rgb(236 253 245 / 0.7)}.bg-emerald-500{--tw-bg-opacity:1;background-color:rgb(16 185 129 / var(--tw-bg-opacity, 1))}.bg-emerald-600{--tw-bg-opacity:1;background-color:rgb(5 150 105 / var(--tw-bg-opacity, 1))}.bg-indigo-100{--tw-bg-opacity:1;background-color:rgb(224 231 255 / var(--tw-bg-opacity, 1))}.bg-indigo-50\/70{background-color:rgb(238 242 255 / 0.7)}.bg-indigo-50\/80{background-color:rgb(238 242 255 / 0.8)}.bg-indigo-600{--tw-bg-opacity:1;background-color:rgb(79 70 229 / var(--tw-bg-opacity, 1))}.bg-orange-100{--tw-bg-opacity:1;background-color:rgb(255 237 213 / var(--tw-bg-opacity, 1))}.bg-paper-card{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-purple-100{--tw-bg-opacity:1;background-color:rgb(243 232 255 / var(--tw-bg-opacity, 1))}.bg-purple-600{--tw-bg-opacity:1;background-color:rgb(147 51 234 / var(--tw-bg-opacity, 1))}.bg-rose-100{--tw-bg-opacity:1;background-color:rgb(255 228 230 / var(--tw-bg-opacity, 1))}.bg-rose-50{--tw-bg-opacity:1;background-color:rgb(255 241 242 / var(--tw-bg-opacity, 1))}.bg-rose-50\/70{background-color:rgb(255 241 242 / 0.7)}.bg-sky-100{--tw-bg-opacity:1;background-color:rgb(224 242 254 / var(--tw-bg-opacity, 1))}.bg-slate-100{--tw-bg-opacity:1;background-color:rgb(241 245 249 / var(--tw-bg-opacity, 1))}.bg-slate-200{--tw-bg-opacity:1;background-color:rgb(226 232 240 / var(--tw-bg-opacity, 1))}.bg-slate-200\/70{background-color:rgb(226 232 240 / 0.7)}.bg-slate-50{--tw-bg-opacity:1;background-color:rgb(248 250 252 / var(--tw-bg-opacity, 1))}.bg-slate-50\/90{background-color:rgb(248 250 252 / 0.9)}.bg-slate-900\/60{background-color:rgb(15 23 42 / 0.6)}.bg-slate-900\/70{background-color:rgb(15 23 42 / 0.7)}.bg-slate-950{--tw-bg-opacity:1;background-color:rgb(2 6 23 / var(--tw-bg-opacity, 1))}.bg-teal-100{--tw-bg-opacity:1;background-color:rgb(204 251 241 / var(--tw-bg-opacity, 1))}.bg-teal-50\/70{background-color:rgb(240 253 250 / 0.7)}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/20{background-color:rgb(255 255 255 / 0.2)}.bg-white\/80{background-color:rgb(255 255 255 / 0.8)}.bg-white\/90{background-color:rgb(255 255 255 / 0.9)}.bg-amber-50\/90{background-color:rgb(255 251 235 / 0.9)}.bg-slate-300{--tw-bg-opacity:1;background-color:rgb(203 213 225 / var(--tw-bg-opacity, 1))}.bg-emerald-700{--tw-bg-opacity:1;background-color:rgb(4 120 87 / var(--tw-bg-opacity, 1))}.bg-emerald-50\/80{background-color:rgb(236 253 245 / 0.8)}.bg-gradient-to-br{background-image:linear-gradient(to bottom right, var(--tw-gradient-stops))}.from-emerald-50{--tw-gradient-from:#ecfdf5 var(--tw-gradient-from-position);--tw-gradient-to:rgb(236 253 245 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-indigo-600{--tw-gradient-from:#4f46e5 var(--tw-gradient-from-position);--tw-gradient-to:rgb(79 70 229 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-blue-600{--tw-gradient-to:rgb(37 99 235 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), #2563eb var(--tw-gradient-via-position), var(--tw-gradient-to)}.to-cyan-600{--tw-gradient-to:#0891b2 var(--tw-gradient-to-position)}.to-teal-50{--tw-gradient-to:#f0fdfa var(--tw-gradient-to-position)}.p-1{padding:0.25rem}.p-2{padding:0.5rem}.p-2\.5{padding:0.625rem}.p-3{padding:0.75rem}.p-3\.5{padding:0.875rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.px-1\.5{padding-left:0.375rem;padding-right:0.375rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-2\.5{padding-left:0.625rem;padding-right:0.625rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-3\.5{padding-left:0.875rem;padding-right:0.875rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}.pb-4{padding-bottom:1rem}.pb-5{padding-bottom:1.25rem}.pt-2{padding-top:0.5rem}.pt-2\.5{padding-top:0.625rem}.pt-6{padding-top:1.5rem}.text-left{text-align:left}.text-center{text-align:center}.font-mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-\[11px\]{font-size:11px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.leading-snug{line-height:1.375}.tracking-wide{letter-spacing:0.025em}.tracking-wider{letter-spacing:0.05em}.text-slate-800{--tw-text-opacity:1;color:rgb(30 41 59 / var(--tw-text-opacity, 1))}.text-amber-400{--tw-text-opacity:1;color:rgb(251 191 36 / var(--tw-text-opacity, 1))}.text-amber-600{--tw-text-opacity:1;color:rgb(217 119 6 / var(--tw-text-opacity, 1))}.text-amber-700{--tw-text-opacity:1;color:rgb(180 83 9 / var(--tw-text-opacity, 1))}.text-amber-800{--tw-text-opacity:1;color:rgb(146 64 14 / var(--tw-text-opacity, 1))}.text-amber-900{--tw-text-opacity:1;color:rgb(120 53 15 / var(--tw-text-opacity, 1))}.text-blue-100{--tw-text-opacity:1;color:rgb(219 234 254 / var(--tw-text-opacity, 1))}.text-blue-600{--tw-text-opacity:1;color:rgb(37 99 235 / var(--tw-text-opacity, 1))}.text-blue-900{--tw-text-opacity:1;color:rgb(30 58 138 / var(--tw-text-opacity, 1))}.text-blue-950{--tw-text-opacity:1;color:rgb(23 37 84 / var(--tw-text-opacity, 1))}.text-emerald-300{--tw-text-opacity:1;color:rgb(110 231 183 / var(--tw-text-opacity, 1))}.text-emerald-600{--tw-text-opacity:1;color:rgb(5 150 105 / var(--tw-text-opacity, 1))}.text-emerald-700{--tw-text-opacity:1;color:rgb(4 120 87 / var(--tw-text-opacity, 1))}.text-emerald-800{--tw-text-opacity:1;color:rgb(6 95 70 / var(--tw-text-opacity, 1))}.text-emerald-900{--tw-text-opacity:1;color:rgb(6 78 59 / var(--tw-text-opacity, 1))}.text-emerald-950{--tw-text-opacity:1;color:rgb(2 44 34 / var(--tw-text-opacity, 1))}.text-indigo-600{--tw-text-opacity:1;color:rgb(79 70 229 / var(--tw-text-opacity, 1))}.text-indigo-700{--tw-text-opacity:1;color:rgb(67 56 202 / var(--tw-text-opacity, 1))}.text-indigo-800{--tw-text-opacity:1;color:rgb(55 48 163 / var(--tw-text-opacity, 1))}.text-indigo-950{--tw-text-opacity:1;color:rgb(30 27 75 / var(--tw-text-opacity, 1))}.text-orange-700{--tw-text-opacity:1;color:rgb(194 65 12 / var(--tw-text-opacity, 1))}.text-purple-600{--tw-text-opacity:1;color:rgb(147 51 234 / var(--tw-text-opacity, 1))}.text-purple-700{--tw-text-opacity:1;color:rgb(126 34 206 / var(--tw-text-opacity, 1))}.text-rose-500{--tw-text-opacity:1;color:rgb(244 63 94 / var(--tw-text-opacity, 1))}.text-rose-600{--tw-text-opacity:1;color:rgb(225 29 72 / var(--tw-text-opacity, 1))}.text-rose-700{--tw-text-opacity:1;color:rgb(190 18 60 / var(--tw-text-opacity, 1))}.text-rose-900{--tw-text-opacity:1;color:rgb(136 19 55 / var(--tw-text-opacity, 1))}.text-sky-700{--tw-text-opacity:1;color:rgb(3 105 161 / var(--tw-text-opacity, 1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity, 1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105 / var(--tw-text-opacity, 1))}.text-slate-700{--tw-text-opacity:1;color:rgb(51 65 85 / var(--tw-text-opacity, 1))}.text-teal-700{--tw-text-opacity:1;color:rgb(15 118 110 / var(--tw-text-opacity, 1))}.text-teal-900{--tw-text-opacity:1;color:rgb(19 78 74 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-white\/10{color:rgb(255 255 255 / 0.1)}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline}.opacity-90{opacity:0.9}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-indigo-600\/20{--tw-shadow-color:rgb(79 70 229 / 0.2);--tw-shadow:var(--tw-shadow-colored)}.outline-none{outline:2px solid transparent;outline-offset:2px}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.selection\:bg-indigo-600 *::selection{--tw-bg-opacity:1;background-color:rgb(79 70 229 / var(--tw-bg-opacity, 1))}.selection\:text-white *::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.selection\:bg-indigo-600::selection{--tw-bg-opacity:1;background-color:rgb(79 70 229 / var(--tw-bg-opacity, 1))}.selection\:text-white::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.hover\:border-indigo-400:hover{--tw-border-opacity:1;border-color:rgb(129 140 248 / var(--tw-border-opacity, 1))}.hover\:border-indigo-300:hover{--tw-border-opacity:1;border-color:rgb(165 180 252 / var(--tw-border-opacity, 1))}.hover\:bg-amber-200\/80:hover{background-color:rgb(253 230 138 / 0.8)}.hover\:bg-emerald-700:hover{--tw-bg-opacity:1;background-color:rgb(4 120 87 / var(--tw-bg-opacity, 1))}.hover\:bg-indigo-700:hover{--tw-bg-opacity:1;background-color:rgb(67 56 202 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-100:hover{--tw-bg-opacity:1;background-color:rgb(241 245 249 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-200:hover{--tw-bg-opacity:1;background-color:rgb(226 232 240 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-300:hover{--tw-bg-opacity:1;background-color:rgb(203 213 225 / var(--tw-bg-opacity, 1))}.hover\:bg-white:hover{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.hover\:bg-indigo-400:hover{--tw-bg-opacity:1;background-color:rgb(129 140 248 / var(--tw-bg-opacity, 1))}.hover\:bg-indigo-50:hover{--tw-bg-opacity:1;background-color:rgb(238 242 255 / var(--tw-bg-opacity, 1))}.focus\:border-indigo-500:focus{--tw-border-opacity:1;border-color:rgb(99 102 241 / var(--tw-border-opacity, 1))}.focus\:ring-2:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.focus\:ring-emerald-500:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(16 185 129 / var(--tw-ring-opacity, 1))}.focus\:ring-indigo-500:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(99 102 241 / var(--tw-ring-opacity, 1))}.focus\:ring-purple-500:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(168 85 247 / var(--tw-ring-opacity, 1))}.active\:scale-\[0\.99\]:active{--tw-scale-x:0.99;--tw-scale-y:0.99;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.disabled\:pointer-events-none:disabled{pointer-events:none}.disabled\:opacity-40:disabled{opacity:0.4}.group:hover .group-hover\:text-indigo-600{--tw-text-opacity:1;color:rgb(79 70 229 / var(--tw-text-opacity, 1))}.dark\:block:is(.dark *){display:block}.dark\:hidden:is(.dark *){display:none}.dark\:border-amber-700\/60:is(.dark *){border-color:rgb(180 83 9 / 0.6)}.dark\:border-amber-800\/50:is(.dark *){border-color:rgb(146 64 14 / 0.5)}.dark\:border-blue-800\/50:is(.dark *){border-color:rgb(30 64 175 / 0.5)}.dark\:border-blue-800\/60:is(.dark *){border-color:rgb(30 64 175 / 0.6)}.dark\:border-emerald-700:is(.dark *){--tw-border-opacity:1;border-color:rgb(4 120 87 / var(--tw-border-opacity, 1))}.dark\:border-emerald-800:is(.dark *){--tw-border-opacity:1;border-color:rgb(6 95 70 / var(--tw-border-opacity, 1))}.dark\:border-emerald-800\/50:is(.dark *){border-color:rgb(6 95 70 / 0.5)}.dark\:border-emerald-800\/60:is(.dark *){border-color:rgb(6 95 70 / 0.6)}.dark\:border-indigo-800:is(.dark *){--tw-border-opacity:1;border-color:rgb(55 48 163 / var(--tw-border-opacity, 1))}.dark\:border-indigo-800\/60:is(.dark *){border-color:rgb(55 48 163 / 0.6)}.dark\:border-indigo-900\/50:is(.dark *){border-color:rgb(49 46 129 / 0.5)}.dark\:border-rose-800\/50:is(.dark *){border-color:rgb(159 18 57 / 0.5)}.dark\:border-rose-800\/60:is(.dark *){border-color:rgb(159 18 57 / 0.6)}.dark\:border-slate-700:is(.dark *){--tw-border-opacity:1;border-color:rgb(51 65 85 / var(--tw-border-opacity, 1))}.dark\:border-slate-800:is(.dark *){--tw-border-opacity:1;border-color:rgb(30 41 59 / var(--tw-border-opacity, 1))}.dark\:border-teal-800\/50:is(.dark *){border-color:rgb(17 94 89 / 0.5)}.dark\:border-amber-800\/60:is(.dark *){border-color:rgb(146 64 14 / 0.6)}.dark\:bg-paper-dark:is(.dark *){--tw-bg-opacity:1;background-color:rgb(15 23 42 / var(--tw-bg-opacity, 1))}.dark\:bg-amber-900\/40:is(.dark *){background-color:rgb(120 53 15 / 0.4)}.dark\:bg-amber-900\/50:is(.dark *){background-color:rgb(120 53 15 / 0.5)}.dark\:bg-amber-950\/30:is(.dark *){background-color:rgb(69 26 3 / 0.3)}.dark\:bg-blue-900\/40:is(.dark *){background-color:rgb(30 58 138 / 0.4)}.dark\:bg-blue-950\/30:is(.dark *){background-color:rgb(23 37 84 / 0.3)}.dark\:bg-blue-950\/40:is(.dark *){background-color:rgb(23 37 84 / 0.4)}.dark\:bg-emerald-900\/40:is(.dark *){background-color:rgb(6 78 59 / 0.4)}.dark\:bg-emerald-950\/30:is(.dark *){background-color:rgb(2 44 34 / 0.3)}.dark\:bg-indigo-500:is(.dark *){--tw-bg-opacity:1;background-color:rgb(99 102 241 / var(--tw-bg-opacity, 1))}.dark\:bg-indigo-900\/40:is(.dark *){background-color:rgb(49 46 129 / 0.4)}.dark\:bg-indigo-900\/50:is(.dark *){background-color:rgb(49 46 129 / 0.5)}.dark\:bg-indigo-950\/30:is(.dark *){background-color:rgb(30 27 75 / 0.3)}.dark\:bg-orange-900\/40:is(.dark *){background-color:rgb(124 45 18 / 0.4)}.dark\:bg-paper-darkCard:is(.dark *){--tw-bg-opacity:1;background-color:rgb(30 41 59 / var(--tw-bg-opacity, 1))}.dark\:bg-purple-900\/40:is(.dark *){background-color:rgb(88 28 135 / 0.4)}.dark\:bg-rose-900\/40:is(.dark *){background-color:rgb(136 19 55 / 0.4)}.dark\:bg-rose-950\/30:is(.dark *){background-color:rgb(76 5 25 / 0.3)}.dark\:bg-sky-900\/40:is(.dark *){background-color:rgb(12 74 110 / 0.4)}.dark\:bg-slate-700:is(.dark *){--tw-bg-opacity:1;background-color:rgb(51 65 85 / var(--tw-bg-opacity, 1))}.dark\:bg-slate-800:is(.dark *){--tw-bg-opacity:1;background-color:rgb(30 41 59 / var(--tw-bg-opacity, 1))}.dark\:bg-slate-800\/50:is(.dark *){background-color:rgb(30 41 59 / 0.5)}.dark\:bg-slate-800\/60:is(.dark *){background-color:rgb(30 41 59 / 0.6)}.dark\:bg-slate-800\/70:is(.dark *){background-color:rgb(30 41 59 / 0.7)}.dark\:bg-slate-900:is(.dark *){--tw-bg-opacity:1;background-color:rgb(15 23 42 / var(--tw-bg-opacity, 1))}.dark\:bg-slate-900\/70:is(.dark *){background-color:rgb(15 23 42 / 0.7)}.dark\:bg-slate-900\/90:is(.dark *){background-color:rgb(15 23 42 / 0.9)}.dark\:bg-teal-900\/40:is(.dark *){background-color:rgb(19 78 74 / 0.4)}.dark\:bg-teal-950\/30:is(.dark *){background-color:rgb(4 47 46 / 0.3)}.dark\:from-emerald-950\/40:is(.dark *){--tw-gradient-from:rgb(2 44 34 / 0.4) var(--tw-gradient-from-position);--tw-gradient-to:rgb(2 44 34 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.dark\:to-teal-950\/40:is(.dark *){--tw-gradient-to:rgb(4 47 46 / 0.4) var(--tw-gradient-to-position)}.dark\:text-slate-100:is(.dark *){--tw-text-opacity:1;color:rgb(241 245 249 / var(--tw-text-opacity, 1))}.dark\:text-amber-200:is(.dark *){--tw-text-opacity:1;color:rgb(253 230 138 / var(--tw-text-opacity, 1))}.dark\:text-amber-300:is(.dark *){--tw-text-opacity:1;color:rgb(252 211 77 / var(--tw-text-opacity, 1))}.dark\:text-amber-400:is(.dark *){--tw-text-opacity:1;color:rgb(251 191 36 / var(--tw-text-opacity, 1))}.dark\:text-blue-200:is(.dark *){--tw-text-opacity:1;color:rgb(191 219 254 / var(--tw-text-opacity, 1))}.dark\:text-blue-300:is(.dark *){--tw-text-opacity:1;color:rgb(147 197 253 / var(--tw-text-opacity, 1))}.dark\:text-blue-400:is(.dark *){--tw-text-opacity:1;color:rgb(96 165 250 / var(--tw-text-opacity, 1))}.dark\:text-emerald-100:is(.dark *){--tw-text-opacity:1;color:rgb(209 250 229 / var(--tw-text-opacity, 1))}.dark\:text-emerald-200:is(.dark *){--tw-text-opacity:1;color:rgb(167 243 208 / var(--tw-text-opacity, 1))}.dark\:text-emerald-300:is(.dark *){--tw-text-opacity:1;color:rgb(110 231 183 / var(--tw-text-opacity, 1))}.dark\:text-emerald-400:is(.dark *){--tw-text-opacity:1;color:rgb(52 211 153 / var(--tw-text-opacity, 1))}.dark\:text-indigo-200:is(.dark *){--tw-text-opacity:1;color:rgb(199 210 254 / var(--tw-text-opacity, 1))}.dark\:text-indigo-300:is(.dark *){--tw-text-opacity:1;color:rgb(165 180 252 / var(--tw-text-opacity, 1))}.dark\:text-indigo-400:is(.dark *){--tw-text-opacity:1;color:rgb(129 140 248 / var(--tw-text-opacity, 1))}.dark\:text-orange-300:is(.dark *){--tw-text-opacity:1;color:rgb(253 186 116 / var(--tw-text-opacity, 1))}.dark\:text-purple-300:is(.dark *){--tw-text-opacity:1;color:rgb(216 180 254 / var(--tw-text-opacity, 1))}.dark\:text-purple-400:is(.dark *){--tw-text-opacity:1;color:rgb(192 132 252 / var(--tw-text-opacity, 1))}.dark\:text-rose-200:is(.dark *){--tw-text-opacity:1;color:rgb(254 205 211 / var(--tw-text-opacity, 1))}.dark\:text-rose-300:is(.dark *){--tw-text-opacity:1;color:rgb(253 164 175 / var(--tw-text-opacity, 1))}.dark\:text-rose-400:is(.dark *){--tw-text-opacity:1;color:rgb(251 113 133 / var(--tw-text-opacity, 1))}.dark\:text-sky-300:is(.dark *){--tw-text-opacity:1;color:rgb(125 211 252 / var(--tw-text-opacity, 1))}.dark\:text-slate-200:is(.dark *){--tw-text-opacity:1;color:rgb(226 232 240 / var(--tw-text-opacity, 1))}.dark\:text-slate-300:is(.dark *){--tw-text-opacity:1;color:rgb(203 213 225 / var(--tw-text-opacity, 1))}.dark\:text-slate-400:is(.dark *){--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}.dark\:text-teal-200:is(.dark *){--tw-text-opacity:1;color:rgb(153 246 228 / var(--tw-text-opacity, 1))}.dark\:text-teal-300:is(.dark *){--tw-text-opacity:1;color:rgb(94 234 212 / var(--tw-text-opacity, 1))}.dark\:hover\:border-indigo-500:hover:is(.dark *){--tw-border-opacity:1;border-color:rgb(99 102 241 / var(--tw-border-opacity, 1))}.dark\:hover\:border-indigo-700:hover:is(.dark *){--tw-border-opacity:1;border-color:rgb(67 56 202 / var(--tw-border-opacity, 1))}.dark\:hover\:bg-amber-800\/50:hover:is(.dark *){background-color:rgb(146 64 14 / 0.5)}.dark\:hover\:bg-slate-700:hover:is(.dark *){--tw-bg-opacity:1;background-color:rgb(51 65 85 / var(--tw-bg-opacity, 1))}.dark\:hover\:bg-slate-800:hover:is(.dark *){--tw-bg-opacity:1;background-color:rgb(30 41 59 / var(--tw-bg-opacity, 1))}.dark\:hover\:bg-indigo-950\/50:hover:is(.dark *){background-color:rgb(30 27 75 / 0.5)}.group:hover .dark\:group-hover\:text-indigo-400:is(.dark *){--tw-text-opacity:1;color:rgb(129 140 248 / var(--tw-text-opacity, 1))}@media (min-width: 640px){.sm\:col-span-3{grid-column:span 3 / span 3}.sm\:inline{display:inline}.sm\:flex{display:flex}.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.sm\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.sm\:flex-row{flex-direction:row}.sm\:items-center{align-items:center}.sm\:gap-2{gap:0.5rem}.sm\:p-5{padding:1.25rem}.sm\:p-6{padding:1.5rem}.sm\:p-7{padding:1.75rem}.sm\:p-8{padding:2rem}.sm\:p-9{padding:2.25rem}.sm\:px-0{padding-left:0px;padding-right:0px}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:px-9{padding-left:2.25rem;padding-right:2.25rem}.sm\:py-8{padding-top:2rem;padding-bottom:2rem}.sm\:text-2xl{font-size:1.5rem;line-height:2rem}.sm\:text-3xl{font-size:1.875rem;line-height:2.25rem}.sm\:text-base{font-size:1rem;line-height:1.5rem}.sm\:text-lg{font-size:1.125rem;line-height:1.75rem}.sm\:text-sm{font-size:0.875rem;line-height:1.25rem}.sm\:text-xl{font-size:1.25rem;line-height:1.75rem}.sm\:text-xs{font-size:0.75rem;line-height:1rem}}@media (min-width: 768px){.md\:col-span-1{grid-column:span 1 / span 1}.md\:inline{display:inline}}@media (min-width: 1024px){.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.lg\:grid-cols-5{grid-template-columns:repeat(5, minmax(0, 1fr))}}</style></head>
+<body class="bg-paper-light text-slate-800 dark:bg-paper-dark dark:text-slate-100 min-h-screen flex flex-col selection:bg-indigo-600 selection:text-white">
+
+  <!-- =====================================================================
+       KONFIGURASI URL GOOGLE APPS SCRIPT (GAS)
+       Catatan untuk Guru: Anda dapat menempelkan URL Web App GAS di dalam
+       variabel DEFAULT_GAS_URL di bawah ini, ATAU menggunakan tombol
+       "Setup Database Guru" di pojok kanan atas aplikasi untuk mengunduh
+       file HTML yang sudah terkonfigurasi secara otomatis.
+       ===================================================================== -->
+  <script>
+    const DEFAULT_GAS_URL = "https://script.google.com/macros/s/AKfycbx-GFbZA-YVsdclj3nodC1fodIq7BZoRN3ahP-gDJLiVNgh33TaSZKTXUwnCODOsID5Ng/exec"; // Tempel URL Web App GAS di sini jika mengedit manual
+  </script>
+
+  <!-- ================= HEADER NAVIGASI E-BOOK ================= -->
+  <header class="sticky top-0 z-40 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800">
+    <div class="max-w-5xl mx-auto px-3 sm:px-6 py-2.5 flex items-center justify-between gap-2">
+      <!-- Identitas E-Book -->
+      <div class="flex items-center gap-2.5 min-w-0">
+        <div class="w-9 h-9 rounded-xl bg-indigo-600 text-white flex items-center justify-center shrink-0 shadow-sm">
+          <!-- Ikon Buku SVG -->
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+          </svg>
+        </div>
+        <div class="truncate">
+          <p class="text-[11px] font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">Koding &amp; KA • Kelas VII</p>
+          <h1 class="text-sm sm:text-base font-bold truncate">E-Book Literasi Digital</h1>
+        </div>
+      </div>
+
+      <!-- Kontrol Pembaca (Ukuran Huruf, Mode Gelap, Daftar Isi, Setup Guru) -->
+      <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
+        <!-- Pengatur Ukuran Teks -->
+        <div class="hidden sm:flex items-center bg-slate-100 dark:bg-slate-800 rounded-xl p-1 border border-slate-200/70 dark:border-slate-700" title="Ukuran Huruf Bacaan">
+          <button type="button" onclick="changeFontSize(-1)" class="px-2 py-1 text-xs font-bold rounded-lg hover:bg-white dark:hover:bg-slate-700 transition" aria-label="Perkecil huruf">A-</button>
+          <button type="button" onclick="changeFontSize(0)" class="px-2 py-1 text-xs font-semibold rounded-lg hover:bg-white dark:hover:bg-slate-700 transition" aria-label="Ukuran huruf normal">A</button>
+          <button type="button" onclick="changeFontSize(1)" class="px-2 py-1 text-xs font-bold rounded-lg hover:bg-white dark:hover:bg-slate-700 transition" aria-label="Perbesar huruf">A+</button>
+        </div>
+
+        <!-- Tombol Mode Gelap/Terang -->
+        <button type="button" onclick="toggleDarkMode()" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition" title="Ubah Tema Terang/Gelap" aria-label="Ubah Tema">
+          <svg id="icon-sun" class="w-4 h-4 hidden dark:block text-amber-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+          </svg>
+          <svg id="icon-moon" class="w-4 h-4 block dark:hidden text-slate-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+          </svg>
+        </button>
+
+        <!-- Tombol Daftar Isi -->
+        <button type="button" onclick="toggleTocModal(true)" class="px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-xs sm:text-sm font-semibold flex items-center gap-1.5 transition">
+          <svg class="w-4 h-4 text-indigo-600 dark:text-indigo-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h10"></path>
+          </svg>
+          <span class="hidden md:inline">Daftar Isi</span>
+        </button>
+
+        <!-- Tombol Setup Database GAS (Khusus Guru) -->
+        <button type="button" onclick="toggleTeacherModal(true)" class="px-3 py-2 rounded-xl bg-amber-100/80 dark:bg-amber-900/40 hover:bg-amber-200/80 dark:hover:bg-amber-800/50 text-amber-900 dark:text-amber-200 border border-amber-300/70 dark:border-amber-700/60 text-xs font-semibold flex items-center gap-1.5 transition" title="Pengaturan Database Google Apps Script untuk Guru">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+          </svg>
+          <span class="hidden sm:inline">Database Guru</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Bilah Progres Halaman E-Book -->
+    <div class="w-full bg-slate-200/70 dark:bg-slate-800 h-1.5">
+      <div id="progress-bar" class="bg-indigo-600 dark:bg-indigo-500 h-1.5 transition-all duration-300" style="width: 14.2857%;"></div>
+    </div>
+  </header>
+
+  <!-- ================= KONTEN UTAMA BUKU ELEKTRONIK ================= -->
+  <main id="ebook-reader-container" class="flex-1 max-w-4xl w-full mx-auto px-3 sm:px-6 py-5 sm:py-8">
+
+    <!-- Indikator Halaman & Status Simpan Otomatis -->
+    <div class="flex flex-wrap items-center justify-between gap-2 mb-4 text-xs text-slate-500 dark:text-slate-400">
+      <div class="flex items-center gap-2">
+        <span id="page-badge" class="px-2.5 py-1 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300 font-semibold">Halaman 1 dari 7</span>
+        <span id="page-chapter-label" class="font-medium truncate">Sampul &amp; Identitas Siswa</span>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span id="autosave-status">Draf tersimpan otomatis di perangkat</span>
+      </div>
+    </div>
+
+    <!-- WADAH HALAMAN BUKU (7 HALAMAN INTERAKTIF) -->
+    <div id="book-pages-wrapper" class="bg-paper-card dark:bg-paper-darkCard rounded-3xl border border-slate-200/90 dark:border-slate-800 book-page-shadow overflow-hidden">
+
+      <!-- ================================================================
+           HALAMAN 0: SAMPUL BUKU, TUJUAN PEMBELAJARAN & IDENTITAS SISWA
+           ================================================================ -->
+      <section id="page-0" class="book-page p-5 sm:p-9 page-enter">
+        <!-- Hero Banner Sampul -->
+        <div class="rounded-2xl bg-gradient-to-br from-indigo-600 via-blue-600 to-cyan-600 text-white p-6 sm:p-8 mb-7 relative overflow-hidden">
+          <div class="relative z-10">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm text-xs font-semibold mb-3">
+              <span>📘 Modul Belajar Mandiri (Asinkronus)</span>
+              <span>•</span>
+              <span>60–75 Menit</span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-extrabold leading-tight mb-2">
+              Bab 2: Literasi Digital untuk Kreasi Konten
+            </h2>
+            <p class="text-blue-100 text-sm sm:text-base max-w-2xl">
+              Bagian A: Mengenal Konsep Konten Digital, Etika Ruang Digital, serta Hak Cipta &amp; Lisensi Bebas.
+            </p>
+          </div>
+          <!-- Dekorasi Ilustrasi SVG -->
+          <svg class="w-40 h-40 text-white/10 absolute -right-6 -bottom-6 pointer-events-none" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"></path>
+          </svg>
+        </div>
+
+        <!-- Tujuan Pembelajaran -->
+        <div class="mb-7 bg-indigo-50/70 dark:bg-indigo-950/30 border border-indigo-100 dark:border-indigo-900/50 rounded-2xl p-5">
+          <h3 class="text-base sm:text-lg font-bold text-indigo-950 dark:text-indigo-200 mb-3 flex items-center gap-2">
+            <span>🎯</span> Tujuan Pembelajaran
+          </h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300 mb-3">
+            Halo semuanya! Hari ini pembelajaran kita dilaksanakan secara mandiri. Setelah membaca buku elektronik ini dan menyelesaikan tantangannya, kamu diharapkan mampu:
+          </p>
+          <ul class="space-y-2 text-sm text-slate-700 dark:text-slate-200">
+            <li class="flex items-start gap-2.5">
+              <span class="w-5 h-5 rounded-full bg-indigo-600 text-white text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">1</span>
+              <span>Menjelaskan pengertian, sifat, dan enam jenis konten digital.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="w-5 h-5 rounded-full bg-indigo-600 text-white text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">2</span>
+              <span>Menerapkan 5 prinsip etika digital dalam membuat dan membagikan konten.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="w-5 h-5 rounded-full bg-indigo-600 text-white text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">3</span>
+              <span>Memahami aturan hak cipta (<em>copyright</em>) serta cara mencantumkan sumber karya orang lain secara legal.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Form Identitas Siswa -->
+        <div class="bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 sm:p-6">
+          <h3 class="text-base sm:text-lg font-bold mb-1 flex items-center gap-2">
+            <span>🪪</span> Identitas Pembaca (Wajib Diisi)
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mb-4">
+            Data ini akan dicatat bersama jawaban kuis dan tugasmu ke dalam database guru.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="sm:col-span-3 md:col-span-1">
+              <label for="input-nama" class="block text-xs font-semibold uppercase tracking-wide text-slate-600 dark:text-slate-300 mb-1.5">
+                Nama Lengkap <span class="text-rose-500">*</span>
+              </label>
+              <input type="text" id="input-nama" data-field="nama" placeholder="Contoh: Ahmad Fauzan" class="w-full px-3.5 py-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition">
+            </div>
+
+            <div>
+              <label for="input-kelas" class="block text-xs font-semibold uppercase tracking-wide text-slate-600 dark:text-slate-300 mb-1.5">
+                Kelas <span class="text-rose-500">*</span>
+              </label>
+              <select id="input-kelas" data-field="kelas" class="w-full px-3.5 py-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition">
+                <option value="">-- Pilih Kelas --</option>
+                <option value="VII-A">VII-A</option>
+                <option value="VII-B">VII-B</option>
+                <option value="VII-C">VII-C</option>
+                <option value="VII-D">VII-D</option>
+                <option value="VII-E">VII-E</option>
+                <option value="VII-F">VII-F</option>
+                <option value="VII-G">VII-G</option>
+                <option value="VII-H">VII-H</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="input-absen" class="block text-xs font-semibold uppercase tracking-wide text-slate-600 dark:text-slate-300 mb-1.5">
+                Nomor Absen <span class="text-rose-500">*</span>
+              </label>
+              <input type="number" id="input-absen" data-field="absen" min="1" max="50" placeholder="Contoh: 12" class="w-full px-3.5 py-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           HALAMAN 1: TAHAP 1 — PEMANASAN & REFLEKSI AWAL (5 MENIT)
+           ================================================================ -->
+      <section id="page-1" class="book-page hidden p-5 sm:p-9 page-enter">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-11 h-11 rounded-2xl bg-amber-100 dark:bg-amber-900/40 text-amber-600 dark:text-amber-300 flex items-center justify-center text-xl font-bold shrink-0">
+            ☀️
+          </div>
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">Tahap 1 • Estimasi 5 Menit</span>
+            <h2 class="text-xl sm:text-2xl font-extrabold">Pemanasan &amp; Refleksi Awal</h2>
+          </div>
+        </div>
+
+        <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
+          Sebelum membuka materi inti pada halaman berikutnya, jawablah 3 pertanyaan singkat di bawah ini berdasarkan pengalamanmu sehari-hari menggunakan perangkat digital. Tidak ada jawaban salah di tahap ini!
+        </p>
+
+        <div class="space-y-5">
+          <!-- Pertanyaan 1 -->
+          <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700">
+            <label for="t1_q1" class="block font-semibold text-sm sm:text-base mb-2">
+              1. Aplikasi apa yang paling sering kamu gunakan untuk melihat atau membuat konten digital (misalnya poster, video, atau presentasi)?
+            </label>
+            <textarea id="t1_q1" data-field="t1_q1" rows="2" placeholder="Tuliskan jawabanmu di sini... (Contoh: YouTube untuk menonton video, Canva untuk membuat poster)" class="w-full px-3.5 py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-sm focus:ring-2 focus:ring-indigo-500 outline-none transition"></textarea>
+          </div>
+
+          <!-- Pertanyaan 2 -->
+          <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700">
+            <label for="t1_q2" class="block font-semibold text-sm sm:text-base mb-2">
+              2. Menurutmu, apa yang membuat sebuah konten digital terlihat menarik dan mudah dipahami?
+            </label>
+            <textarea id="t1_q2" data-field="t1_q2" rows="2" placeholder="Tuliskan pendapatmu di sini..." class="w-full px-3.5 py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-sm focus:ring-2 focus:ring-indigo-500 outline-none transition"></textarea>
+          </div>
+
+          <!-- Pertanyaan 3 -->
+          <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700">
+            <label for="t1_q3" class="block font-semibold text-sm sm:text-base mb-2">
+              3. Pernahkah kamu mengambil gambar dari internet untuk tugas sekolah? Dari mana kamu mengambilnya?
+            </label>
+            <textarea id="t1_q3" data-field="t1_q3" rows="2" placeholder="Ceritakan pengalamanmu secara singkat..." class="w-full px-3.5 py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-sm focus:ring-2 focus:ring-indigo-500 outline-none transition"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           HALAMAN 2: TAHAP 2A — MATERI INTI: PENGERTIAN & JENIS KONTEN
+           ================================================================ -->
+      <section id="page-2" class="book-page hidden p-5 sm:p-9 page-enter">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-11 h-11 rounded-2xl bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-300 flex items-center justify-center text-xl font-bold shrink-0">
+            📖
+          </div>
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">Tahap 2 • Materi Inti (Bagian 1)</span>
+            <h2 class="text-xl sm:text-2xl font-extrabold">Mengenal Konten Digital</h2>
+          </div>
+        </div>
+
+        <!-- Konsep Dasar -->
+        <div class="prose dark:prose-invert max-w-none space-y-4 text-sm sm:text-base leading-relaxed mb-7">
+          <div class="p-5 rounded-2xl bg-blue-50/80 dark:bg-blue-950/30 border-l-4 border-blue-600">
+            <h3 class="font-bold text-blue-950 dark:text-blue-200 text-base sm:text-lg mb-1">1. Apa Itu Konten Digital?</h3>
+            <p class="text-slate-700 dark:text-slate-300">
+              <strong>Konten digital</strong> adalah segala bentuk informasi atau karya yang dibuat menggunakan teknologi digital dan disajikan melalui media elektronik (komputer, tablet, atau ponsel pintar), baik secara <em>online</em> maupun <em>offline</em>.
+            </p>
+            <p class="text-slate-700 dark:text-slate-300 mt-2">
+              <strong>Ciri khas utama:</strong> Mudah diakses, dapat diedit dengan cepat, dan dapat dibagikan secara luas dalam waktu singkat.
+            </p>
+          </div>
+
+          <!-- 3 Sifat Konten Digital -->
+          <h3 class="font-bold text-base sm:text-lg pt-2">Sifat-Sifat Konten Digital</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+              <div class="text-2xl mb-1.5">🖼️</div>
+              <h4 class="font-bold text-sm mb-1">Statis (Diam)</h4>
+              <p class="text-xs text-slate-600 dark:text-slate-400">Tidak bergerak dan tidak bersuara. Contohnya teks artikel dan gambar foto.</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+              <div class="text-2xl mb-1.5">🎬</div>
+              <h4 class="font-bold text-sm mb-1">Dinamis (Bergerak/Suara)</h4>
+              <p class="text-xs text-slate-600 dark:text-slate-400">Memiliki unsur gerak atau audio. Contohnya rekaman musik, podcast, dan video.</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
+              <div class="text-2xl mb-1.5">✨</div>
+              <h4 class="font-bold text-sm mb-1">Kombinasi</h4>
+              <p class="text-xs text-slate-600 dark:text-slate-400">Gabungan beberapa media, misalnya video yang dilengkapi teks dan suara narasi.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6 Jenis Konten Digital (Kartu Interaktif) -->
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="font-bold text-base sm:text-lg">2. Enam Jenis Konten Digital</h3>
+            <span class="text-xs text-indigo-600 dark:text-indigo-400 font-medium">Ketuk kartu untuk melihat contoh</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5" id="content-types-grid">
+            <!-- Kartu 1: Teks -->
+            <button type="button" onclick="toggleCardDetail(this)" class="text-left p-4 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-indigo-400 dark:hover:border-indigo-500 transition shadow-sm group">
+              <div class="flex items-center justify-between mb-2">
+                <span class="w-9 h-9 rounded-xl bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 flex items-center justify-center text-lg">📝</span>
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">Statis</span>
+              </div>
+              <h4 class="font-bold text-base mb-1 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition">1. Teks</h4>
+              <p class="text-xs text-slate-600 dark:text-slate-300">Konten yang hanya menggunakan tulisan untuk menyampaikan informasi.</p>
+              <div class="card-extra hidden mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-700 text-xs text-indigo-700 dark:text-indigo-300 font-medium">
+                Contoh: Artikel berita, blog, buku digital (e-book), catatan digital.
+              </div>
+            </button>
+
+            <!-- Kartu 2: Gambar -->
+            <button type="button" onclick="toggleCardDetail(this)" class="text-left p-4 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-indigo-400 dark:hover:border-indigo-500 transition shadow-sm group">
+              <div class="flex items-center justify-between mb-2">
+                <span class="w-9 h-9 rounded-xl bg-sky-100 dark:bg-sky-900/40 text-sky-700 dark:text-sky-300 flex items-center justify-center text-lg">📷</span>
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">Statis</span>
+              </div>
+              <h4 class="font-bold text-base mb-1 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition">2. Gambar</h4>
+              <p class="text-xs text-slate-600 dark:text-slate-300">Konten visual diam yang menangkap momen atau ilustrasi grafis.</p>
+              <div class="card-extra hidden mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-700 text-xs text-indigo-700 dark:text-indigo-300 font-medium">
+                Contoh: Foto kegiatan sekolah, ilustrasi digital, poster, komik digital.
+              </div>
+            </button>
+
+            <!-- Kartu 3: Audio -->
+            <button type="button" onclick="toggleCardDetail(this)" class="text-left p-4 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-indigo-400 dark:hover:border-indigo-500 transition shadow-sm group">
+              <div class="flex items-center justify-between mb-2">
+                <span class="w-9 h-9 rounded-xl bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 flex items-center justify-center text-lg">🎧</span>
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300">Dinamis</span>
+              </div>
+              <h4 class="font-bold text-base mb-1 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition">3. Audio</h4>
+              <p class="text-xs text-slate-600 dark:text-slate-300">Konten berbentuk suara yang dapat didengarkan melalui perangkat.</p>
+              <div class="card-extra hidden mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-700 text-xs text-indigo-700 dark:text-indigo-300 font-medium">
+                Contoh: Musik digital, podcast edukasi, rekaman narasi cerita.
+              </div>
+            </button>
+
+            <!-- Kartu 4: Video -->
+            <button type="button" onclick="toggleCardDetail(this)" class="text-left p-4 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-indigo-400 dark:hover:border-indigo-500 transition shadow-sm group">
+              <div class="flex items-center justify-between mb-2">
+                <span class="w-9 h-9 rounded-xl bg-rose-100 dark:bg-rose-900/40 text-rose-700 dark:text-rose-300 flex items-center justify-center text-lg">🎥</span>
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300">Dinamis</span>
+              </div>
+              <h4 class="font-bold text-base mb-1 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition">4. Video</h4>
+              <p class="text-xs text-slate-600 dark:text-slate-300">Gabungan gambar bergerak dan suara yang menarik perhatian.</p>
+              <div class="card-extra hidden mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-700 text-xs text-indigo-700 dark:text-indigo-300 font-medium">
+                Contoh: Film pendek, animasi, vlog, video tutorial pembelajaran.
+              </div>
+            </button>
+
+            <!-- Kartu 5: Slide Presentasi -->
+            <button type="button" onclick="toggleCardDetail(this)" class="text-left p-4 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-indigo-400 dark:hover:border-indigo-500 transition shadow-sm group">
+              <div class="flex items-center justify-between mb-2">
+                <span class="w-9 h-9 rounded-xl bg-orange-100 dark:bg-orange-900/40 text-orange-700 dark:text-orange-300 flex items-center justify-center text-lg">📊</span>
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-indigo-100 dark:bg-indigo-900/40 text-indigo-700 dark:text-indigo-300">Kombinasi</span>
+              </div>
+              <h4 class="font-bold text-base mb-1 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition">5. Slide Presentasi</h4>
+              <p class="text-xs text-slate-600 dark:text-slate-300">Lembar presentasi berurutan untuk menjelaskan suatu topik.</p>
+              <div class="card-extra hidden mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-700 text-xs text-indigo-700 dark:text-indigo-300 font-medium">
+                Contoh: File presentasi PowerPoint, Google Slides, atau Canva Presentation.
+              </div>
+            </button>
+
+            <!-- Kartu 6: Infografik -->
+            <button type="button" onclick="toggleCardDetail(this)" class="text-left p-4 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-indigo-400 dark:hover:border-indigo-500 transition shadow-sm group">
+              <div class="flex items-center justify-between mb-2">
+                <span class="w-9 h-9 rounded-xl bg-teal-100 dark:bg-teal-900/40 text-teal-700 dark:text-teal-300 flex items-center justify-center text-lg">📈</span>
+                <span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-indigo-100 dark:bg-indigo-900/40 text-indigo-700 dark:text-indigo-300">Kombinasi</span>
+              </div>
+              <h4 class="font-bold text-base mb-1 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition">6. Infografik</h4>
+              <p class="text-xs text-slate-600 dark:text-slate-300">Gabungan teks &amp; visual untuk menyajikan data secara ringkas.</p>
+              <div class="card-extra hidden mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-700 text-xs text-indigo-700 dark:text-indigo-300 font-medium">
+                Contoh: Poster data pengguna internet, infografik langkah anti-hoaks.
+              </div>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           HALAMAN 3: TAHAP 2B — MATERI INTI: ETIKA DIGITAL & HAK CIPTA
+           ================================================================ -->
+      <section id="page-3" class="book-page hidden p-5 sm:p-9 page-enter">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-11 h-11 rounded-2xl bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-300 flex items-center justify-center text-xl font-bold shrink-0">
+            🛡️
+          </div>
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Tahap 2 • Materi Inti (Bagian 2)</span>
+            <h2 class="text-xl sm:text-2xl font-extrabold">Etika Digital &amp; Hak Cipta</h2>
+          </div>
+        </div>
+
+        <!-- Bagian 3: Etika Konten Digital -->
+        <div class="mb-8">
+          <h3 class="text-base sm:text-lg font-bold mb-2">3. Lima Prinsip Utama Etika Konten Digital</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">
+            <strong>Etika konten digital</strong> adalah aturan dan sikap yang wajib dipatuhi saat memproduksi, menggunakan, dan membagikan konten di dunia maya agar tidak merugikan orang lain.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 mb-4">
+            <div class="p-3.5 rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200/70 dark:border-emerald-800/50">
+              <div class="text-lg mb-1">🔒</div>
+              <h4 class="font-bold text-sm text-emerald-900 dark:text-emerald-200">Privasi</h4>
+              <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">Jangan membagikan data pribadi atau foto orang lain tanpa izin.</p>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/70 dark:border-amber-800/50">
+              <div class="text-lg mb-1">💬</div>
+              <h4 class="font-bold text-sm text-amber-900 dark:text-amber-200">Sopan Santun</h4>
+              <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">Gunakan bahasa yang baik dan tidak kasar di ruang digital.</p>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-blue-50/70 dark:bg-blue-950/30 border border-blue-200/70 dark:border-blue-800/50">
+              <div class="text-lg mb-1">⚖️</div>
+              <h4 class="font-bold text-sm text-blue-900 dark:text-blue-200">Tanggung Jawab</h4>
+              <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">Berani bertanggung jawab atas setiap konten yang diunggah.</p>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-rose-50/70 dark:bg-rose-950/30 border border-rose-200/70 dark:border-rose-800/50">
+              <div class="text-lg mb-1">✅</div>
+              <h4 class="font-bold text-sm text-rose-900 dark:text-rose-200">Kejujuran</h4>
+              <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">Jangan membuat atau menyebarkan informasi palsu (hoaks).</p>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-teal-50/70 dark:bg-teal-950/30 border border-teal-200/70 dark:border-teal-800/50">
+              <div class="text-lg mb-1">🤝</div>
+              <h4 class="font-bold text-sm text-teal-900 dark:text-teal-200">Menghormati</h4>
+              <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">Hindari konten yang menghina, mengejek, atau menyerang orang lain.</p>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-rose-50 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-800/60 text-xs sm:text-sm text-rose-900 dark:text-rose-200">
+            <strong>⚠️ Contoh Pelanggaran Etika Sehari-hari:</strong> Mengunggah foto teman ke media sosial tanpa izin, menulis komentar kebencian (<em>hate speech</em>), dan meneruskan pesan berita bohong (hoaks) tanpa mengecek kebenarannya.
+          </div>
+        </div>
+
+        <!-- Bagian 4: Hak Cipta & Lisensi Bebas -->
+        <div class="border-t border-slate-200 dark:border-slate-800 pt-6">
+          <h3 class="text-base sm:text-lg font-bold mb-2">4. Hak Cipta (<em>Copyright</em>) dan Lisensi Bebas</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+            <strong>Hak cipta</strong> adalah hak khusus yang dimiliki pencipta suatu karya (foto, lagu, video, tulisan) untuk mengatur siapa saja yang boleh menggunakan karyanya. Mengambil, mengedit, atau mengunggah ulang (<em>reupload</em>) karya orang lain tanpa izin dan tanpa mencantumkan sumber termasuk <strong>pelanggaran hak cipta</strong>.
+          </p>
+
+          <div class="bg-indigo-50/80 dark:bg-indigo-950/30 rounded-2xl p-5 border border-indigo-200/80 dark:border-indigo-800/60">
+            <h4 class="font-bold text-sm sm:text-base text-indigo-950 dark:text-indigo-200 mb-3">
+              3 Cara Menghormati Hak Cipta Saat Berkarya:
+            </h4>
+            <ol class="space-y-3 text-sm text-slate-700 dark:text-slate-200 list-decimal list-inside">
+              <li>
+                <strong>Minta izin langsung</strong> kepada pemilik karya sebelum menggunakannya.
+              </li>
+              <li>
+                <strong>Gunakan konten berlisensi bebas (<em>Creative Commons</em>):</strong> Kamu bisa mengunduh gambar, musik, dan video gratis secara legal dari situs seperti <span class="font-semibold text-indigo-700 dark:text-indigo-300">Pixabay, Pexels, Unsplash,</span> atau <span class="font-semibold text-indigo-700 dark:text-indigo-300">Free Music Archive</span>.
+              </li>
+              <li>
+                <strong>Cantumkan nama sumber/kredit:</strong> Tuliskan nama kreator dan situs asalnya saat memakai karya orang lain.<br>
+                <span class="inline-block mt-1.5 px-3 py-1 rounded-lg bg-white dark:bg-slate-900 border border-indigo-200 dark:border-indigo-800 font-mono text-xs text-indigo-700 dark:text-indigo-300">
+                  Contoh penulisan: gidlark01/Pixabay.com (2025)
+                </span>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           HALAMAN 4: TAHAP 3 — TANTANGAN MANDIRI: MISI KREATOR BIJAK
+           ================================================================ -->
+      <section id="page-4" class="book-page hidden p-5 sm:p-9 page-enter">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-11 h-11 rounded-2xl bg-purple-100 dark:bg-purple-900/40 text-purple-600 dark:text-purple-300 flex items-center justify-center text-xl font-bold shrink-0">
+            🚀
+          </div>
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-purple-600 dark:text-purple-400">Tahap 3 • Estimasi 25 Menit</span>
+            <h2 class="text-xl sm:text-2xl font-extrabold">Tantangan Mandiri: Misi Kreator Bijak</h2>
+          </div>
+        </div>
+
+        <p class="text-sm text-slate-600 dark:text-slate-300 mb-6">
+          Selesaikan ketiga misi praktik individu di bawah ini. Seluruh jawabanmu akan terekam ke spreadsheet guru saat kamu menekan tombol kirim di akhir buku.
+        </p>
+
+        <div class="space-y-6">
+          <!-- MISI 1 -->
+          <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="px-2.5 py-0.5 rounded-lg bg-purple-600 text-white text-xs font-bold">MISI 1</span>
+              <h3 class="font-bold text-base sm:text-lg">Bedah Konten Digital</h3>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mb-4">
+              Buka YouTube, Instagram, atau portal edukasi, lalu pilih <strong>1 konten edukasi</strong> (video pendek atau infografik) dan isi hasil analisismu:
+            </p>
+
+            <div class="space-y-3">
+              <div>
+                <label for="misi1_judul" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
+                  a. Judul/topik konten dan jenis kontennya (Video/Infografik/Slide/dll.):
+                </label>
+                <input type="text" id="misi1_judul" data-field="misi1_judul" placeholder="Contoh: Video Animasi Cara Kerja Internet (Jenis: Video)" class="w-full px-3.5 py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-sm focus:ring-2 focus:ring-purple-500 outline-none">
+              </div>
+
+              <div>
+                <label for="misi1_tujuan" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
+                  b. Apa tujuan dibuatnya konten tersebut dan siapa target audiensnya?
+                </label>
+                <textarea id="misi1_tujuan" data-field="misi1_tujuan" rows="2" placeholder="Tuliskan tujuan konten dan siapa penonton yang cocok..." class="w-full px-3.5 py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-sm focus:ring-2 focus:ring-purple-500 outline-none"></textarea>
+              </div>
+
+              <div>
+                <label for="misi1_analisis" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
+                  c. Sebutkan 1 kelebihan dan 1 kekurangan dari tampilan konten tersebut!
+                </label>
+                <textarea id="misi1_analisis" data-field="misi1_analisis" rows="2" placeholder="Kelebihan: ... | Kekurangan: ..." class="w-full px-3.5 py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-sm focus:ring-2 focus:ring-purple-500 outline-none"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- MISI 2 -->
+          <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="px-2.5 py-0.5 rounded-lg bg-indigo-600 text-white text-xs font-bold">MISI 2</span>
+              <h3 class="font-bold text-base sm:text-lg">Analisis Kasus Etika &amp; Hak Cipta</h3>
+            </div>
+
+            <div class="space-y-4 mt-3">
+              <!-- Kasus A -->
+              <div class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">
+                <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-200 mb-2">
+                  <strong>Kasus A:</strong> Rani memotret temannya yang sedang tertidur di kelas dengan ekspresi lucu, lalu mengunggahnya ke grup media sosial tanpa izin sehingga temannya merasa malu.
+                </p>
+                <label for="misi2_kasusA" class="block text-xs font-semibold text-indigo-700 dark:text-indigo-300 mb-1.5">
+                  Prinsip etika digital apa yang dilanggar Rani, dan apa dampak buruk tindakan tersebut?
+                </label>
+                <textarea id="misi2_kasusA" data-field="misi2_kasusA" rows="2" placeholder="Tuliskan analisismu untuk Kasus A..." class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-sm focus:ring-2 focus:ring-indigo-500 outline-none"></textarea>
+              </div>
+
+              <!-- Kasus B -->
+              <div class="p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">
+                <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-200 mb-2">
+                  <strong>Kasus B:</strong> Dimas mengunduh video animasi buatan kreator lain di YouTube, memotong bagian awalnya, lalu mengunggah ulang ke akun TikTok miliknya seolah-olah itu karyanya sendiri tanpa mencantumkan sumber.
+                </p>
+                <label for="misi2_kasusB" class="block text-xs font-semibold text-indigo-700 dark:text-indigo-300 mb-1.5">
+                  Apakah tindakan Dimas diperbolehkan? Jelaskan alasanmu berdasarkan aturan hak cipta!
+                </label>
+                <textarea id="misi2_kasusB" data-field="misi2_kasusB" rows="2" placeholder="Tuliskan analisismu untuk Kasus B..." class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-sm focus:ring-2 focus:ring-indigo-500 outline-none"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- MISI 3 -->
+          <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="px-2.5 py-0.5 rounded-lg bg-emerald-600 text-white text-xs font-bold">MISI 3</span>
+              <h3 class="font-bold text-base sm:text-lg">Praktik Mencantumkan Sumber Legal</h3>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mb-3">
+              Kunjungi salah satu situs penyedia gambar bebas lisensi:
+              <a href="https://pixabay.com" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 underline font-semibold">Pixabay.com</a>,
+              <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 underline font-semibold">Unsplash.com</a>, atau
+              <a href="https://www.pexels.com" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 underline font-semibold">Pexels.com</a>.
+              Cari 1 gambar bertema <strong>"Teknologi"</strong> atau <strong>"Belajar"</strong>, lalu tuliskan format kredit sumbernya dengan benar!
+            </p>
+
+            <label for="misi3_sitasi" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+              Format penulisan sumber: <code class="px-1.5 py-0.5 rounded bg-slate-200 dark:bg-slate-700">Nama Pembuat/Nama Situs (Tahun)</code>
+            </label>
+            <input type="text" id="misi3_sitasi" data-field="misi3_sitasi" oninput="validateCitationFormat(this.value)" placeholder="Contoh: geralt/Pixabay.com (2025)" class="w-full px-3.5 py-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 font-mono text-sm focus:ring-2 focus:ring-emerald-500 outline-none">
+            <p id="citation-hint" class="text-xs text-slate-500 dark:text-slate-400 mt-1.5">
+              💡 Tip: Pastikan menyertakan garis miring (/) nama situs dan tahun di dalam tanda kurung.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           HALAMAN 5: TAHAP 4 — KUIS FORMATIF MANDIRI (10 SOAL PG)
+           ================================================================ -->
+      <section id="page-5" class="book-page hidden p-5 sm:p-9 page-enter">
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-5">
+          <div class="flex items-center gap-3">
+            <div class="w-11 h-11 rounded-2xl bg-rose-100 dark:bg-rose-900/40 text-rose-600 dark:text-rose-300 flex items-center justify-center text-xl font-bold shrink-0">
+              🧠
+            </div>
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-rose-600 dark:text-rose-400">Tahap 4 • Estimasi 15 Menit</span>
+              <h2 class="text-xl sm:text-2xl font-extrabold">Kuis Formatif Mandiri</h2>
+            </div>
+          </div>
+
+          <div class="px-3.5 py-1.5 rounded-xl bg-indigo-100 dark:bg-indigo-900/50 text-indigo-800 dark:text-indigo-200 text-xs font-bold">
+            Terjawab: <span id="quiz-answered-count">0</span> / 10 Soal
+          </div>
+        </div>
+
+        <p class="text-sm text-slate-600 dark:text-slate-300 mb-6">
+          Pilihlah satu jawaban yang paling tepat (A, B, C, atau D). Nilaimu akan dihitung secara otomatis setelah kamu menekan tombol kirim di halaman terakhir.
+        </p>
+
+        <!-- Wadah Soal Kuis (Dirender lewat JS agar rapi & mudah dikelola) -->
+        <div id="quiz-questions-container" class="space-y-6">
+          <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
+            <p class="font-semibold text-sm sm:text-base mb-3 leading-relaxed">
+              <span class="inline-block px-2 py-0.5 mr-1.5 rounded-md bg-indigo-600 text-white text-xs font-bold">1</span>
+              Segala bentuk informasi atau karya yang dibuat menggunakan teknologi digital dan disajikan melalui media elektronik disebut...
+            </p>
+            <div class="grid grid-cols-1 gap-2.5">
+              
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer transition select-none
+                bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700">
+                <input type="radio" name="quiz_q_1" value="A" onchange="selectQuizOption(1, 'A')" class="mt-1 w-4 h-4 text-indigo-600 focus:ring-indigo-500">
+                <span class="text-xs sm:text-sm leading-snug">
+                  <strong class="mr-1.5">A.</strong> Perangkat keras
+                </span>
+              </label>
+            
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer transition select-none
+                bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700">
+                <input type="radio" name="quiz_q_1" value="B" onchange="selectQuizOption(1, 'B')" class="mt-1 w-4 h-4 text-indigo-600 focus:ring-indigo-500">
+                <span class="text-xs sm:text-sm leading-snug">
+                  <strong class="mr-1.5">B.</strong> Konten digital
+                </span>
+              </label>
+            
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer transition select-none
+                bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700">
+                <input type="radio" name="quiz_q_1" value="C" onchange="selectQuizOption(1, 'C')" class="mt-1 w-4 h-4 text-indigo-600 focus:ring-indigo-500">
+                <span class="text-xs sm:text-sm leading-snug">
+                  <strong class="mr-1.5">C.</strong> Jaringan internet
+                </span>
+              </label>
+            
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer transition select-none
+                bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700">
+                <input type="radio" name="quiz_q_1" value="D" onchange="selectQuizOption(1, 'D')" class="mt-1 w-4 h-4 text-indigo-600 focus:ring-indigo-500">
+                <span class="text-xs sm:text-sm leading-snug">
+                  <strong class="mr-1.5">D.</strong> Sistem operasi
+                </span>
+              </label>
+            
+            </div>
+          </div>
+        
+          <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
+            <p class="font-semibold text-sm sm:text-base mb-3 leading-relaxed">
+              <span class="inline-block px-2 py-0.5 mr-1.5 rounded-md bg-indigo-600 text-white text-xs font-bold">2</span>
+              Berikut ini yang merupakan ciri khas utama dari konten digital adalah...
+            </p>
+            <div class="grid grid-cols-1 gap-2.5">
+              
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer transition select-none
+                bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700">
+                <input type="radio" name="quiz_q_2" value="A" onchange="selectQuizOption(2, 'A')" class="mt-1 w-4 h-4 text-indigo-600 focus:ring-indigo-500">
+                <span class="text-xs sm:text-sm leading-snug">
+                  <strong class="mr-1.5">A.</strong> Hanya bisa dibuka saat terhubung ke kabel jaringan
+                </span>
+              </label>
+            
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer transition select-none
+                bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700">
+                <input type="radio" name="quiz_q_2" value="B" onchange="selectQuizOption(2, 'B')" class="mt-1 w-4 h-4 text-indigo-600 focus:ring-indigo-500">
+                <span class="text-xs sm:text-sm leading-snug">
+                  <strong class="mr-1.5">B.</strong> Sulit diubah setelah selesai dibuat
+                </span>
+              </label>
+            
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer transition select-none
+                bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700">
+                <input type="radio" name="quiz_q_2" value="C" onchange="selectQuizOption(2, 'C')" class="mt-1 w-4 h-4 text-indigo-600 focus:ring-indigo-500">
+                <span class="text-xs sm:text-sm leading-snug">
+                  <strong class="mr-1.5">C.</strong> Mudah diakses, dapat diedit dengan cepat, dan dibagikan secara luas
+                </span>
+              </label>
+            
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer transition select-none
+                bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700">
+                <input type="radio" name="quiz_q_2" value="D" onchange="selectQuizOption(2, 'D')" class="mt-1 w-4 h-4 text-indigo-600 focus:ring-indigo-500">
+                <span class="text-xs sm:text-sm leading-snug">
+                  <strong class="mr-1.5">D.</strong> Hanya dapat dinikmati melalui komputer meja (PC)
+                </span>
+              </label>
+            
+            </div>
+          </div>
+        
+          <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
+            <p class="font-semibold text-sm sm:text-base mb-3 leading-relaxed">
+              <span class="inline-block px-2 py-0.5 mr-1.5 rounded-md bg-indigo-600 text-white text-xs font-bold">3</span>
+              Kelompok konten digital berikut ini yang seluruhnya bersifat statis adalah...
+            </p>
+            <div class="grid grid-cols-1 gap-2.5">
+              
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer transition select-none
+                bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700">
+                <input type="radio" name="quiz_q_3" value="A" onchange="selectQuizOption(3, 'A')" class="mt-1 w-4 h-4 text-indigo-600 focus:ring-indigo-500">
+                <span class="text-xs sm:text-sm leading-snug">
+                  <strong class="mr-1.5">A.</strong> Artikel blog dan komik digital
+                </span>
+              </label>
+            
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer transition select-none
+                bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700">
+                <input type="radio" name="quiz_q_3" value="B" onchange="selectQuizOption(3, 'B')" class="mt-1 w-4 h-4 text-indigo-600 focus:ring-indigo-500">
+                <span class="text-xs sm:text-sm leading-snug">
+                  <strong class="mr-1.5">B.</strong> Podcast dan video tutorial
+                </span>
+              </label>
+            
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer transition select-none
+                bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700">
+                <input type="radio" name="quiz_q_3" value="C" onchange="selectQuizOption(3, 'C')" class="mt-1 w-4 h-4 text-indigo-600 focus:ring-indigo-500">
+                <span class="text-xs sm:text-sm leading-snug">
+                  <strong class="mr-1.5">C.</strong> Animasi dan rekaman musik
+                </span>
+              </label>
+            
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer transition select-none
+                bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700">
+                <input type="radio" name="quiz_q_3" value="D" onchange="selectQuizOption(3, 'D')" class="mt-1 w-4 h-4 text-indigo-600 focus:ring-indigo-500">
+                <span class="text-xs sm:text-sm leading-snug">
+                  <strong class="mr-1.5">D.</strong> Vlog dan slide presentasi bersuara
+                </span>
+              </label>
+            
+            </div>
+          </div>
+        
+          <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
+            <p class="font-semibold text-sm sm:text-base mb-3 leading-relaxed">
+              <span class="inline-block px-2 py-0.5 mr-1.5 rounded-md bg-indigo-600 text-white text-xs font-bold">4</span>
+              Kamu ingin menjelaskan data jumlah pengguna internet di Indonesia dalam satu halaman poster agar ringkas, visual, dan mudah dipahami pembaca. Jenis konten digital yang paling tepat kamu buat adalah...
+            </p>
+            <div class="grid grid-cols-1 gap-2.5">
+              
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer transition select-none
+                bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700">
+                <input type="radio" name="quiz_q_4" value="A" onchange="selectQuizOption(4, 'A')" class="mt-1 w-4 h-4 text-indigo-600 focus:ring-indigo-500">
+                <span class="text-xs sm:text-sm leading-snug">
+                  <strong class="mr-1.5">A.</strong> Audio narasi
+                </span>
+              </label>
+            
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer transition select-none
+                bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700">
+                <input type="radio" name="quiz_q_4" value="B" onchange="selectQuizOption(4, 'B')" class="mt-1 w-4 h-4 text-indigo-600 focus:ring-indigo-500">
+                <span class="text-xs sm:text-sm leading-snug">
+                  <strong class="mr-1.5">B.</strong> Artikel teks panjang
+                </span>
+              </label>
+            
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer transition select-none
+                bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700">
+                <input type="radio" name="quiz_q_4" value="C" onchange="selectQuizOption(4, 'C')" class="mt-1 w-4 h-4 text-indigo-600 focus:ring-indigo-500">
+                <span class="text-xs sm:text-sm leading-snug">
+                  <strong class="mr-1.5">C.</strong> Infografik
+                </span>
+              </label>
+            
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer transition select-none
+                bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700">
+                <input type="radio" name="quiz_q_4" value="D" onchange="selectQuizOption(4, 'D')" class="mt-1 w-4 h-4 text-indigo-600 focus:ring-indigo-500">
+                <span class="text-xs sm:text-sm leading-snug">
+                  <strong class="mr-1.5">D.</strong> Rekaman podcast
+                </span>
+              </label>
+            
+            </div>
+          </div>
+        
+          <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
+            <p class="font-semibold text-sm sm:text-base mb-3 leading-relaxed">
+              <span class="inline-block px-2 py-0.5 mr-1.5 rounded-md bg-indigo-600 text-white text-xs font-bold">5</span>
+              Saat berdiskusi di kolom komentar media sosial, Dito selalu menggunakan bahasa yang santun dan tidak menghina pendapat orang lain yang berbeda dengannya. Sikap Dito mencerminkan prinsip etika digital, yaitu...
+            </p>
+            <div class="grid grid-cols-1 gap-2.5">
+              
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer transition select-none
+                bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700">
+                <input type="radio" name="quiz_q_5" value="A" onchange="selectQuizOption(5, 'A')" class="mt-1 w-4 h-4 text-indigo-600 focus:ring-indigo-500">
+                <span class="text-xs sm:text-sm leading-snug">
+                  <strong class="mr-1.5">A.</strong> Kejujuran dan privasi
+                </span>
+              </label>
+            
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer transition select-none
+                bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700">
+                <input type="radio" name="quiz_q_5" value="B" onchange="selectQuizOption(5, 'B')" class="mt-1 w-4 h-4 text-indigo-600 focus:ring-indigo-500">
+                <span class="text-xs sm:text-sm leading-snug">
+                  <strong class="mr-1.5">B.</strong> Sopan santun dan menghormati orang lain
+                </span>
+              </label>
+            
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer transition select-none
+                bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700">
+                <input type="radio" name="quiz_q_5" value="C" onchange="selectQuizOption(5, 'C')" class="mt-1 w-4 h-4 text-indigo-600 focus:ring-indigo-500">
+                <span class="text-xs sm:text-sm leading-snug">
+                  <strong class="mr-1.5">C.</strong> Hak cipta dan kreativitas
+                </span>
+              </label>
+            
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer transition select-none
+                bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700">
+                <input type="radio" name="quiz_q_5" value="D" onchange="selectQuizOption(5, 'D')" class="mt-1 w-4 h-4 text-indigo-600 focus:ring-indigo-500">
+                <span class="text-xs sm:text-sm leading-snug">
+                  <strong class="mr-1.5">D.</strong> Tanggung jawab dan komersial
+                </span>
+              </label>
+            
+            </div>
+          </div>
+        
+          <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
+            <p class="font-semibold text-sm sm:text-base mb-3 leading-relaxed">
+              <span class="inline-block px-2 py-0.5 mr-1.5 rounded-md bg-indigo-600 text-white text-xs font-bold">6</span>
+              Seseorang menerima pesan berantai berisi berita yang belum jelas kebenarannya, lalu langsung membagikannya ke banyak grup tanpa mengecek fakta terlebih dahulu. Pelanggaran etika digital yang terjadi pada kasus tersebut adalah...
+            </p>
+            <div class="grid grid-cols-1 gap-2.5">
+              
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer transition select-none
+                bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700">
+                <input type="radio" name="quiz_q_6" value="A" onchange="selectQuizOption(6, 'A')" class="mt-1 w-4 h-4 text-indigo-600 focus:ring-indigo-500">
+                <span class="text-xs sm:text-sm leading-snug">
+                  <strong class="mr-1.5">A.</strong> Pelanggaran hak cipta
+                </span>
+              </label>
+            
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer transition select-none
+                bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700">
+                <input type="radio" name="quiz_q_6" value="B" onchange="selectQuizOption(6, 'B')" class="mt-1 w-4 h-4 text-indigo-600 focus:ring-indigo-500">
+                <span class="text-xs sm:text-sm leading-snug">
+                  <strong class="mr-1.5">B.</strong> Penyebaran berita bohong (hoaks)
+                </span>
+              </label>
+            
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer transition select-none
+                bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700">
+                <input type="radio" name="quiz_q_6" value="C" onchange="selectQuizOption(6, 'C')" class="mt-1 w-4 h-4 text-indigo-600 focus:ring-indigo-500">
+                <span class="text-xs sm:text-sm leading-snug">
+                  <strong class="mr-1.5">C.</strong> Pencurian data pribadi
+                </span>
+              </label>
+            
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer transition select-none
+                bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700">
+                <input type="radio" name="quiz_q_6" value="D" onchange="selectQuizOption(6, 'D')" class="mt-1 w-4 h-4 text-indigo-600 focus:ring-indigo-500">
+                <span class="text-xs sm:text-sm leading-snug">
+                  <strong class="mr-1.5">D.</strong> Peretasan akun
+                </span>
+              </label>
+            
+            </div>
+          </div>
+        
+          <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
+            <p class="font-semibold text-sm sm:text-base mb-3 leading-relaxed">
+              <span class="inline-block px-2 py-0.5 mr-1.5 rounded-md bg-indigo-600 text-white text-xs font-bold">7</span>
+              Mengapa kita dilarang mengunggah foto teman ke media sosial tanpa meminta izin terlebih dahulu?
+            </p>
+            <div class="grid grid-cols-1 gap-2.5">
+              
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer transition select-none
+                bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700">
+                <input type="radio" name="quiz_q_7" value="A" onchange="selectQuizOption(7, 'A')" class="mt-1 w-4 h-4 text-indigo-600 focus:ring-indigo-500">
+                <span class="text-xs sm:text-sm leading-snug">
+                  <strong class="mr-1.5">A.</strong> Karena ukuran file foto terlalu besar
+                </span>
+              </label>
+            
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer transition select-none
+                bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700">
+                <input type="radio" name="quiz_q_7" value="B" onchange="selectQuizOption(7, 'B')" class="mt-1 w-4 h-4 text-indigo-600 focus:ring-indigo-500">
+                <span class="text-xs sm:text-sm leading-snug">
+                  <strong class="mr-1.5">B.</strong> Karena melanggar privasi dan dapat membuat teman merasa tidak nyaman atau malu
+                </span>
+              </label>
+            
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer transition select-none
+                bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700">
+                <input type="radio" name="quiz_q_7" value="C" onchange="selectQuizOption(7, 'C')" class="mt-1 w-4 h-4 text-indigo-600 focus:ring-indigo-500">
+                <span class="text-xs sm:text-sm leading-snug">
+                  <strong class="mr-1.5">C.</strong> Karena aplikasi media sosial melarang unggahan foto bersama
+                </span>
+              </label>
+            
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer transition select-none
+                bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700">
+                <input type="radio" name="quiz_q_7" value="D" onchange="selectQuizOption(7, 'D')" class="mt-1 w-4 h-4 text-indigo-600 focus:ring-indigo-500">
+                <span class="text-xs sm:text-sm leading-snug">
+                  <strong class="mr-1.5">D.</strong> Karena foto tersebut otomatis menjadi milik publik
+                </span>
+              </label>
+            
+            </div>
+          </div>
+        
+          <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
+            <p class="font-semibold text-sm sm:text-base mb-3 leading-relaxed">
+              <span class="inline-block px-2 py-0.5 mr-1.5 rounded-md bg-indigo-600 text-white text-xs font-bold">8</span>
+              Hak khusus yang dimiliki oleh pencipta suatu karya untuk mengatur siapa saja yang boleh menggunakan dan menyebarkan karyanya disebut...
+            </p>
+            <div class="grid grid-cols-1 gap-2.5">
+              
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer transition select-none
+                bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700">
+                <input type="radio" name="quiz_q_8" value="A" onchange="selectQuizOption(8, 'A')" class="mt-1 w-4 h-4 text-indigo-600 focus:ring-indigo-500">
+                <span class="text-xs sm:text-sm leading-snug">
+                  <strong class="mr-1.5">A.</strong> Lisensi publik
+                </span>
+              </label>
+            
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer transition select-none
+                bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700">
+                <input type="radio" name="quiz_q_8" value="B" onchange="selectQuizOption(8, 'B')" class="mt-1 w-4 h-4 text-indigo-600 focus:ring-indigo-500">
+                <span class="text-xs sm:text-sm leading-snug">
+                  <strong class="mr-1.5">B.</strong> Etika digital
+                </span>
+              </label>
+            
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer transition select-none
+                bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700">
+                <input type="radio" name="quiz_q_8" value="C" onchange="selectQuizOption(8, 'C')" class="mt-1 w-4 h-4 text-indigo-600 focus:ring-indigo-500">
+                <span class="text-xs sm:text-sm leading-snug">
+                  <strong class="mr-1.5">C.</strong> Hak cipta (copyright)
+                </span>
+              </label>
+            
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer transition select-none
+                bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700">
+                <input type="radio" name="quiz_q_8" value="D" onchange="selectQuizOption(8, 'D')" class="mt-1 w-4 h-4 text-indigo-600 focus:ring-indigo-500">
+                <span class="text-xs sm:text-sm leading-snug">
+                  <strong class="mr-1.5">D.</strong> Jejak digital
+                </span>
+              </label>
+            
+            </div>
+          </div>
+        
+          <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
+            <p class="font-semibold text-sm sm:text-base mb-3 leading-relaxed">
+              <span class="inline-block px-2 py-0.5 mr-1.5 rounded-md bg-indigo-600 text-white text-xs font-bold">9</span>
+              Manakah di antara situs berikut yang menyediakan gambar berlisensi bebas (Creative Commons) sehingga boleh digunakan secara gratis dan legal dengan mencantumkan sumber?
+            </p>
+            <div class="grid grid-cols-1 gap-2.5">
+              
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer transition select-none
+                bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700">
+                <input type="radio" name="quiz_q_9" value="A" onchange="selectQuizOption(9, 'A')" class="mt-1 w-4 h-4 text-indigo-600 focus:ring-indigo-500">
+                <span class="text-xs sm:text-sm leading-snug">
+                  <strong class="mr-1.5">A.</strong> Pixabay dan Unsplash
+                </span>
+              </label>
+            
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer transition select-none
+                bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700">
+                <input type="radio" name="quiz_q_9" value="B" onchange="selectQuizOption(9, 'B')" class="mt-1 w-4 h-4 text-indigo-600 focus:ring-indigo-500">
+                <span class="text-xs sm:text-sm leading-snug">
+                  <strong class="mr-1.5">B.</strong> TikTok dan Instagram
+                </span>
+              </label>
+            
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer transition select-none
+                bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700">
+                <input type="radio" name="quiz_q_9" value="C" onchange="selectQuizOption(9, 'C')" class="mt-1 w-4 h-4 text-indigo-600 focus:ring-indigo-500">
+                <span class="text-xs sm:text-sm leading-snug">
+                  <strong class="mr-1.5">C.</strong> WhatsApp dan Telegram
+                </span>
+              </label>
+            
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer transition select-none
+                bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700">
+                <input type="radio" name="quiz_q_9" value="D" onchange="selectQuizOption(9, 'D')" class="mt-1 w-4 h-4 text-indigo-600 focus:ring-indigo-500">
+                <span class="text-xs sm:text-sm leading-snug">
+                  <strong class="mr-1.5">D.</strong> Google Docs dan PowerPoint
+                </span>
+              </label>
+            
+            </div>
+          </div>
+        
+          <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
+            <p class="font-semibold text-sm sm:text-base mb-3 leading-relaxed">
+              <span class="inline-block px-2 py-0.5 mr-1.5 rounded-md bg-indigo-600 text-white text-xs font-bold">10</span>
+              Budi mengunduh foto pemandangan dari situs Pexels yang dibuat oleh kreator bernama RakaArt pada tahun 2025. Cara penulisan sumber yang paling tepat pada tugas presentasi Budi adalah...
+            </p>
+            <div class="grid grid-cols-1 gap-2.5">
+              
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer transition select-none
+                bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700">
+                <input type="radio" name="quiz_q_10" value="A" onchange="selectQuizOption(10, 'A')" class="mt-1 w-4 h-4 text-indigo-600 focus:ring-indigo-500">
+                <span class="text-xs sm:text-sm leading-snug">
+                  <strong class="mr-1.5">A.</strong> Sumber: Internet/Google (2025)
+                </span>
+              </label>
+            
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer transition select-none
+                bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700">
+                <input type="radio" name="quiz_q_10" value="B" onchange="selectQuizOption(10, 'B')" class="mt-1 w-4 h-4 text-indigo-600 focus:ring-indigo-500">
+                <span class="text-xs sm:text-sm leading-snug">
+                  <strong class="mr-1.5">B.</strong> Foto oleh Budi/Pexels.com
+                </span>
+              </label>
+            
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer transition select-none
+                bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700">
+                <input type="radio" name="quiz_q_10" value="C" onchange="selectQuizOption(10, 'C')" class="mt-1 w-4 h-4 text-indigo-600 focus:ring-indigo-500">
+                <span class="text-xs sm:text-sm leading-snug">
+                  <strong class="mr-1.5">C.</strong> RakaArt/Pexels.com (2025)
+                </span>
+              </label>
+            
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer transition select-none
+                bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700">
+                <input type="radio" name="quiz_q_10" value="D" onchange="selectQuizOption(10, 'D')" class="mt-1 w-4 h-4 text-indigo-600 focus:ring-indigo-500">
+                <span class="text-xs sm:text-sm leading-snug">
+                  <strong class="mr-1.5">D.</strong> Diunduh gratis tanpa hak cipta
+                </span>
+              </label>
+            
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           HALAMAN 6: LEMBAR PENGIRIMAN & RAPOR MANDIRI SISWA
+           ================================================================ -->
+      <section id="page-6" class="book-page hidden p-5 sm:p-9 page-enter">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-11 h-11 rounded-2xl bg-indigo-100 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-300 flex items-center justify-center text-xl font-bold shrink-0">
+            📤
+          </div>
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">Tahap Akhir</span>
+            <h2 class="text-xl sm:text-2xl font-extrabold">Kirim Jawaban &amp; Cek Nilai Kuis</h2>
+          </div>
+        </div>
+
+        <!-- Ringkasan Kelengkapan Tugas -->
+        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 mb-6">
+          <h3 class="font-bold text-base mb-3">📋 Cek Kelengkapan Modulmu</h3>
+          <div id="submission-checklist" class="space-y-2.5 text-sm"></div>
+        </div>
+
+        <!-- Status Koneksi Database Guru -->
+        <div id="gas-status-banner" class="p-4 rounded-2xl mb-6 text-xs sm:text-sm flex items-start gap-3 border bg-emerald-50/80 dark:bg-emerald-950/30 border-emerald-200 dark:border-emerald-800/60 text-emerald-900 dark:text-emerald-200">
+          <span class="text-lg">🟢</span>
+          <div>
+            <p class="font-bold">Database Spreadsheet Guru Terhubung</p>
+            <p class="text-xs opacity-90 mt-0.5">Jawabanmu akan otomatis dikirim ke folder <strong>Data Siswa kelas 7 Etika Digital</strong> → Spreadsheet <strong>Data Siswa ASINKRONUS</strong>.</p>
+          </div>
+        </div>
+
+        <!-- Tombol Aksi Pengiriman -->
+        <div class="flex flex-col sm:flex-row gap-3">
+          <button type="button" id="btn-submit-all" onclick="submitModuleData()" class="flex-1 py-4 px-6 rounded-2xl bg-indigo-600 hover:bg-indigo-700 active:scale-[0.99] text-white font-bold text-sm sm:text-base shadow-lg shadow-indigo-600/20 flex items-center justify-center gap-2 transition">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+            </svg>
+            <span>Kirim Jawaban &amp; Lihat Nilai Kuis</span>
+          </button>
+
+          <button type="button" onclick="downloadBackupText()" class="py-4 px-5 rounded-2xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-semibold text-sm flex items-center justify-center gap-2 transition">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+            </svg>
+            <span>Simpan Bukti (.txt)</span>
+          </button>
+        </div>
+
+        <!-- PANEL HASIL & RAPOR OTOMATIS (MUNCUL SETELAH DIKIRIM) -->
+        <div id="result-report-panel" class="hidden mt-8 p-6 rounded-2xl bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/40 dark:to-teal-950/40 border border-emerald-200 dark:border-emerald-800/60">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-emerald-200/80 dark:border-emerald-800/60">
+            <div>
+              <span class="inline-block px-3 py-1 rounded-full bg-emerald-600 text-white text-xs font-bold mb-2">
+                ✓ Pembelajaran Selesai
+              </span>
+              <h3 class="text-xl font-extrabold text-emerald-950 dark:text-emerald-100" id="report-student-name">Nama Siswa</h3>
+              <p class="text-xs sm:text-sm text-emerald-800 dark:text-emerald-300" id="report-submission-note">
+                Data berhasil direkam!
+              </p>
+            </div>
+            <div class="bg-white dark:bg-slate-900 px-6 py-4 rounded-2xl text-center border border-emerald-200 dark:border-emerald-800 shadow-sm">
+              <span class="block text-xs font-semibold uppercase tracking-wider text-slate-500">Nilai Kuis Formatif</span>
+              <span id="report-score-value" class="text-3xl font-extrabold text-indigo-600 dark:text-indigo-400">100</span>
+              <span id="report-correct-count" class="block text-xs font-medium text-emerald-600 dark:text-emerald-400 mt-0.5">10/10 Benar</span>
+            </div>
+          </div>
+
+          <div class="mt-5">
+            <h4 class="font-bold text-sm text-emerald-950 dark:text-emerald-200 mb-3">Review Jawaban Kuis Formatif:</h4>
+            <div id="report-quiz-review" class="space-y-2 text-xs sm:text-sm"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= NAVIGASI BAWAH HALAMAN E-BOOK ================= -->
+      <div class="px-5 sm:px-9 py-4 bg-slate-50/90 dark:bg-slate-900/70 border-t border-slate-200/80 dark:border-slate-800 flex items-center justify-between gap-3">
+        <button type="button" id="btn-prev-page" onclick="navigatePage(-1)" class="px-4 py-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 text-xs sm:text-sm font-semibold flex items-center gap-2 disabled:opacity-40 disabled:pointer-events-none transition" disabled="">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+          </svg>
+          <span>Sebelumnya</span>
+        </button>
+
+        <!-- Titik Indikator Halaman -->
+        <div class="flex items-center gap-1.5" id="page-dots-container"><button type="button" onclick="goToPage(0)" class="page-dot w-6 h-2.5 rounded-full bg-indigo-600 transition-all cursor-pointer" title="Sampul &amp; Identitas Siswa" aria-label="Sampul &amp; Identitas Siswa"></button><button type="button" onclick="goToPage(1)" class="page-dot w-2.5 h-2.5 rounded-full bg-slate-300 dark:bg-slate-700 hover:bg-indigo-400 transition-all cursor-pointer" title="Tahap 1: Pemanasan &amp; Refleksi Awal" aria-label="Tahap 1: Pemanasan &amp; Refleksi Awal"></button><button type="button" onclick="goToPage(2)" class="page-dot w-2.5 h-2.5 rounded-full bg-slate-300 dark:bg-slate-700 hover:bg-indigo-400 transition-all cursor-pointer" title="Tahap 2: Konsep &amp; Jenis Konten Digital" aria-label="Tahap 2: Konsep &amp; Jenis Konten Digital"></button><button type="button" onclick="goToPage(3)" class="page-dot w-2.5 h-2.5 rounded-full bg-slate-300 dark:bg-slate-700 hover:bg-indigo-400 transition-all cursor-pointer" title="Tahap 2: Etika Digital &amp; Hak Cipta" aria-label="Tahap 2: Etika Digital &amp; Hak Cipta"></button><button type="button" onclick="goToPage(4)" class="page-dot w-2.5 h-2.5 rounded-full bg-slate-300 dark:bg-slate-700 hover:bg-indigo-400 transition-all cursor-pointer" title="Tahap 3: Tantangan Mandiri (Misi 1–3)" aria-label="Tahap 3: Tantangan Mandiri (Misi 1–3)"></button><button type="button" onclick="goToPage(5)" class="page-dot w-2.5 h-2.5 rounded-full bg-slate-300 dark:bg-slate-700 hover:bg-indigo-400 transition-all cursor-pointer" title="Tahap 4: Kuis Formatif (10 Soal)" aria-label="Tahap 4: Kuis Formatif (10 Soal)"></button><button type="button" onclick="goToPage(6)" class="page-dot w-2.5 h-2.5 rounded-full bg-slate-300 dark:bg-slate-700 hover:bg-indigo-400 transition-all cursor-pointer" title="Pengiriman &amp; Rapor Nilai" aria-label="Pengiriman &amp; Rapor Nilai"></button></div>
+
+        <button type="button" id="btn-next-page" onclick="navigatePage(1)" class="px-4 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs sm:text-sm font-semibold flex items-center gap-2 disabled:opacity-40 disabled:pointer-events-none transition">
+          <span>Berikutnya</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <!-- ================= MODAL DAFTAR ISI (TABLE OF CONTENTS) ================= -->
+  <div id="toc-modal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white dark:bg-slate-900 rounded-3xl max-w-md w-full p-6 border border-slate-200 dark:border-slate-800 shadow-2xl">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-lg font-extrabold">📑 Daftar Isi E-Book</h3>
+        <button type="button" onclick="toggleTocModal(false)" class="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500">✕</button>
+      </div>
+      <div id="toc-list" class="space-y-2">
+          <button type="button" onclick="goToPage(0); toggleTocModal(false);" class="w-full text-left px-4 py-3 rounded-2xl hover:bg-indigo-50 dark:hover:bg-indigo-950/50 border border-slate-200/80 dark:border-slate-800 flex items-center justify-between transition">
+            <div>
+              <span class="text-[11px] font-bold uppercase text-indigo-600 dark:text-indigo-400">Halaman 1</span>
+              <p class="text-sm font-semibold">Sampul &amp; Identitas Siswa</p>
+            </div>
+            <span class="text-slate-400 text-sm">→</span>
+          </button>
+        
+          <button type="button" onclick="goToPage(1); toggleTocModal(false);" class="w-full text-left px-4 py-3 rounded-2xl hover:bg-indigo-50 dark:hover:bg-indigo-950/50 border border-slate-200/80 dark:border-slate-800 flex items-center justify-between transition">
+            <div>
+              <span class="text-[11px] font-bold uppercase text-indigo-600 dark:text-indigo-400">Halaman 2</span>
+              <p class="text-sm font-semibold">Tahap 1: Pemanasan &amp; Refleksi Awal</p>
+            </div>
+            <span class="text-slate-400 text-sm">→</span>
+          </button>
+        
+          <button type="button" onclick="goToPage(2); toggleTocModal(false);" class="w-full text-left px-4 py-3 rounded-2xl hover:bg-indigo-50 dark:hover:bg-indigo-950/50 border border-slate-200/80 dark:border-slate-800 flex items-center justify-between transition">
+            <div>
+              <span class="text-[11px] font-bold uppercase text-indigo-600 dark:text-indigo-400">Halaman 3</span>
+              <p class="text-sm font-semibold">Tahap 2: Konsep &amp; Jenis Konten Digital</p>
+            </div>
+            <span class="text-slate-400 text-sm">→</span>
+          </button>
+        
+          <button type="button" onclick="goToPage(3); toggleTocModal(false);" class="w-full text-left px-4 py-3 rounded-2xl hover:bg-indigo-50 dark:hover:bg-indigo-950/50 border border-slate-200/80 dark:border-slate-800 flex items-center justify-between transition">
+            <div>
+              <span class="text-[11px] font-bold uppercase text-indigo-600 dark:text-indigo-400">Halaman 4</span>
+              <p class="text-sm font-semibold">Tahap 2: Etika Digital &amp; Hak Cipta</p>
+            </div>
+            <span class="text-slate-400 text-sm">→</span>
+          </button>
+        
+          <button type="button" onclick="goToPage(4); toggleTocModal(false);" class="w-full text-left px-4 py-3 rounded-2xl hover:bg-indigo-50 dark:hover:bg-indigo-950/50 border border-slate-200/80 dark:border-slate-800 flex items-center justify-between transition">
+            <div>
+              <span class="text-[11px] font-bold uppercase text-indigo-600 dark:text-indigo-400">Halaman 5</span>
+              <p class="text-sm font-semibold">Tahap 3: Tantangan Mandiri (Misi 1–3)</p>
+            </div>
+            <span class="text-slate-400 text-sm">→</span>
+          </button>
+        
+          <button type="button" onclick="goToPage(5); toggleTocModal(false);" class="w-full text-left px-4 py-3 rounded-2xl hover:bg-indigo-50 dark:hover:bg-indigo-950/50 border border-slate-200/80 dark:border-slate-800 flex items-center justify-between transition">
+            <div>
+              <span class="text-[11px] font-bold uppercase text-indigo-600 dark:text-indigo-400">Halaman 6</span>
+              <p class="text-sm font-semibold">Tahap 4: Kuis Formatif (10 Soal)</p>
+            </div>
+            <span class="text-slate-400 text-sm">→</span>
+          </button>
+        
+          <button type="button" onclick="goToPage(6); toggleTocModal(false);" class="w-full text-left px-4 py-3 rounded-2xl hover:bg-indigo-50 dark:hover:bg-indigo-950/50 border border-slate-200/80 dark:border-slate-800 flex items-center justify-between transition">
+            <div>
+              <span class="text-[11px] font-bold uppercase text-indigo-600 dark:text-indigo-400">Halaman 7</span>
+              <p class="text-sm font-semibold">Pengiriman &amp; Rapor Nilai</p>
+            </div>
+            <span class="text-slate-400 text-sm">→</span>
+          </button>
+        </div>
+    </div>
+  </div>
+
+  <!-- ================= MODAL PENGATURAN DATABASE GAS (KHUSUS GURU) ================= -->
+  <div id="teacher-modal" class="fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-sm flex items-center justify-center p-3 sm:p-5 overflow-y-auto">
+    <div class="bg-white dark:bg-slate-900 rounded-3xl max-w-3xl w-full p-5 sm:p-7 border border-slate-200 dark:border-slate-800 shadow-2xl my-auto max-h-[92vh] overflow-y-auto">
+      <div class="flex items-start justify-between gap-3 pb-4 border-b border-slate-200 dark:border-slate-800">
+        <div>
+          <span class="px-2.5 py-0.5 rounded-full bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-200 text-xs font-bold">Panel Konfigurasi Guru</span>
+          <h3 class="text-lg sm:text-xl font-extrabold mt-1">Integrasi Database Google Apps Script (GAS)</h3>
+        </div>
+        <button type="button" onclick="toggleTeacherModal(false)" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 font-bold">✕</button>
+      </div>
+
+      <div class="space-y-5 mt-4 text-xs sm:text-sm">
+        <!-- Penjelasan Otomatisasi Folder & Spreadsheet -->
+        <div class="p-4 rounded-2xl bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800/60 text-blue-950 dark:text-blue-200">
+          <p class="font-bold mb-1">📂 Otomatisasi Google Drive &amp; Spreadsheet:</p>
+          <p class="leading-relaxed">
+            Karena Anda belum membuat folder dan spreadsheet-nya, skrip GAS di bawah ini sudah diprogram untuk <strong>otomatis memeriksa dan membuatkan</strong> folder bernama <code class="px-1.5 py-0.5 rounded bg-white/80 dark:bg-slate-900 font-bold">Data Siswa kelas 7 Etika Digital</code> di Google Drive Anda, lalu membuat file Spreadsheet <code class="px-1.5 py-0.5 rounded bg-white/80 dark:bg-slate-900 font-bold">Data Siswa ASINKRONUS</code> di dalam folder tersebut saat siswa pertama mengirimkan jawaban.
+          </p>
+        </div>
+
+        <!-- Langkah 1: Salin Kode GAS -->
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <span class="font-bold text-slate-800 dark:text-slate-100">Langkah 1: Salin Kode Google Apps Script (Code.gs)</span>
+            <button type="button" onclick="copyGasScript()" class="px-3.5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold flex items-center gap-1.5 transition">
+              <span>📋 Salin Kode GAS</span>
+            </button>
+          </div>
+          <pre id="gas-code-block" class="p-3.5 rounded-2xl bg-slate-950 text-emerald-300 font-mono text-[11px] sm:text-xs overflow-x-auto max-h-48 border border-slate-800 leading-relaxed">// Kode Google Apps Script (Code.gs)
+// Otomatis membuat folder "Data Siswa kelas 7 Etika Digital"
+// dan Spreadsheet "Data Siswa ASINKRONUS" di dalamnya.
+
+function doPost(e) {
+  try {
+    var data = JSON.parse(e.postData.contents);
+    var folderName = "Data Siswa kelas 7 Etika Digital";
+    var fileName = "Data Siswa ASINKRONUS";
+
+    // 1. Cari atau buat folder di Google Drive
+    var folders = DriveApp.getFoldersByName(folderName);
+    var folder = folders.hasNext() ? folders.next() : DriveApp.createFolder(folderName);
+
+    // 2. Cari atau buat Spreadsheet di dalam folder tujuan
+    var files = folder.getFilesByName(fileName);
+    var ss;
+    if (files.hasNext()) {
+      ss = SpreadsheetApp.open(files.next());
+    } else {
+      ss = SpreadsheetApp.create(fileName);
+      var file = DriveApp.getFileById(ss.getId());
+      file.moveTo(folder);
+    }
+
+    // 3. Siapkan Sheet &amp; Header jika masih kosong
+    var sheet = ss.getSheets()[0];
+    sheet.setName("Rekap Jawaban Siswa");
+    if (sheet.getLastRow() === 0) {
+      var headers = [
+        "Waktu Kirim",
+        "Nama Lengkap",
+        "Kelas",
+        "No. Absen",
+        "Skor Kuis (0-100)",
+        "Jumlah Benar",
+        "Tahap 1 - Q1 (Aplikasi Favorit)",
+        "Tahap 1 - Q2 (Konten Menarik)",
+        "Tahap 1 - Q3 (Sumber Gambar)",
+        "Misi 1 - Judul &amp; Jenis Konten",
+        "Misi 1 - Tujuan &amp; Audiens",
+        "Misi 1 - Kelebihan &amp; Kekurangan",
+        "Misi 2 - Analisis Kasus A (Privasi)",
+        "Misi 2 - Analisis Kasus B (Hak Cipta)",
+        "Misi 3 - Sitasi Gambar Legal",
+        "Detail Jawaban Kuis (Q1-Q10)"
+      ];
+      sheet.appendRow(headers);
+      var headerRange = sheet.getRange(1, 1, 1, headers.length);
+      headerRange.setFontWeight("bold");
+      headerRange.setBackground("#1e3a8a");
+      headerRange.setFontColor("#ffffff");
+      sheet.setFrozenRows(1);
+    }
+
+    // 4. Simpan data jawaban siswa ke baris baru
+    var row = [
+      new Date(),
+      data.nama || "-",
+      data.kelas || "-",
+      data.absen || "-",
+      data.skorKuis !== undefined ? data.skorKuis : 0,
+      data.jumlahBenar || "0/10",
+      data.t1_q1 || "-",
+      data.t1_q2 || "-",
+      data.t1_q3 || "-",
+      data.misi1_judul || "-",
+      data.misi1_tujuan || "-",
+      data.misi1_analisis || "-",
+      data.misi2_kasusA || "-",
+      data.misi2_kasusB || "-",
+      data.misi3_sitasi || "-",
+      data.detailKuis || "-"
+    ];
+    sheet.appendRow(row);
+
+    return ContentService
+      .createTextOutput(JSON.stringify({ status: "success", message: "Data tersimpan ke Spreadsheet!" }))
+      .setMimeType(ContentService.MimeType.JSON);
+
+  } catch (err) {
+    return ContentService
+      .createTextOutput(JSON.stringify({ status: "error", message: err.toString() }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+
+function doGet(e) {
+  return ContentService
+    .createTextOutput(JSON.stringify({ status: "active", info: "Database GAS Modul Etika Digital aktif." }))
+    .setMimeType(ContentService.MimeType.JSON);
+}</pre>
+        </div>
+
+        <!-- Langkah 2: Panduan Singkat Deploy -->
+        <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-700">
+          <p class="font-bold mb-1.5">Langkah 2: Cara Deploy di Google Apps Script</p>
+          <ol class="list-decimal list-inside space-y-1 text-slate-600 dark:text-slate-300">
+            <li>Buka <a href="https://script.google.com" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 underline font-semibold">script.google.com</a> lalu klik <strong>Project Baru</strong>.</li>
+            <li>Hapus kode bawaan, tempel kode di atas, lalu klik ikon <strong>Simpan</strong> (Ctrl+S).</li>
+            <li>Klik tombol biru <strong>Terapkan (Deploy) &gt; Deployment baru</strong> &gt; pilih jenis <strong>Aplikasi web (Web app)</strong>.</li>
+            <li>Pada <em>Yang memiliki akses (Who has access)</em>, pilih <strong>Siapa saja (Anyone)</strong>, lalu klik <strong>Terapkan</strong> dan izinkan akses Drive/Spreadsheet.</li>
+            <li>Salin <strong>URL Aplikasi Web</strong> yang muncul, lalu tempel di kolom di bawah ini.</li>
+          </ol>
+        </div>
+
+        <!-- Langkah 3: Input URL & Export File Siap Bagikan -->
+        <div class="p-4 rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/60">
+          <label for="teacher-gas-url-input" class="block font-bold text-emerald-950 dark:text-emerald-200 mb-1.5">
+            Langkah 3: Tempel URL Aplikasi Web GAS Anda di Sini
+          </label>
+          <input type="url" id="teacher-gas-url-input" placeholder="https://script.google.com/macros/s/AKfycb.../exec" class="w-full px-3.5 py-3 rounded-xl bg-white dark:bg-slate-900 border border-emerald-300 dark:border-emerald-700 font-mono text-xs focus:ring-2 focus:ring-emerald-500 outline-none mb-3">
+
+          <div class="flex flex-wrap gap-2.5">
+            <button type="button" onclick="saveAndTestGasUrl()" class="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center gap-1.5 transition">
+              <span>⚡ Simpan &amp; Uji Buat Folder/Sheet</span>
+            </button>
+            <button type="button" onclick="downloadConfiguredHtml()" class="px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs flex items-center gap-1.5 transition">
+              <span>⬇️ Unduh File HTML Siap Bagikan ke Siswa</span>
+            </button>
+          </div>
+          <p class="text-[11px] text-slate-600 dark:text-slate-400 mt-2">
+            *Tombol <strong>Unduh File HTML Siap Bagikan</strong> akan menghasilkan salinan e-book ini yang sudah tertanam URL database Anda, sehingga siswa langsung terhubung otomatis tanpa perlu mengatur apa pun.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= TOAST / NOTIFIKASI PESAN (PENGGANTI ALERT) ================= -->
+  <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 max-w-sm w-full pointer-events-none px-4 sm:px-0"></div>
+
+  <!-- ================= LOGIKA JAVASCRIPT APLIKASI E-BOOK ================= -->
+  <script>
+    // -----------------------------------------------------------------------
+    // 1. DATA STRUKTUR HALAMAN & BANK SOAL KUIS FORMATIF
+    // -----------------------------------------------------------------------
+    const BOOK_PAGES = [
+      { id: 0, title: "Sampul & Identitas Siswa", short: "Sampul" },
+      { id: 1, title: "Tahap 1: Pemanasan & Refleksi Awal", short: "Tahap 1" },
+      { id: 2, title: "Tahap 2: Konsep & Jenis Konten Digital", short: "Materi 1" },
+      { id: 3, title: "Tahap 2: Etika Digital & Hak Cipta", short: "Materi 2" },
+      { id: 4, title: "Tahap 3: Tantangan Mandiri (Misi 1–3)", short: "Misi Mandiri" },
+      { id: 5, title: "Tahap 4: Kuis Formatif (10 Soal)", short: "Kuis" },
+      { id: 6, title: "Pengiriman & Rapor Nilai", short: "Kirim" }
+    ];
+
+    const QUIZ_QUESTIONS = [
+      {
+        num: 1,
+        question: "Segala bentuk informasi atau karya yang dibuat menggunakan teknologi digital dan disajikan melalui media elektronik disebut...",
+        options: {
+          A: "Perangkat keras",
+          B: "Konten digital",
+          C: "Jaringan internet",
+          D: "Sistem operasi"
+        },
+        answer: "B",
+        explanation: "Konten digital adalah informasi atau karya yang dibuat dengan teknologi digital dan disajikan via media elektronik."
+      },
+      {
+        num: 2,
+        question: "Berikut ini yang merupakan ciri khas utama dari konten digital adalah...",
+        options: {
+          A: "Hanya bisa dibuka saat terhubung ke kabel jaringan",
+          B: "Sulit diubah setelah selesai dibuat",
+          C: "Mudah diakses, dapat diedit dengan cepat, dan dibagikan secara luas",
+          D: "Hanya dapat dinikmati melalui komputer meja (PC)"
+        },
+        answer: "C",
+        explanation: "Konten digital bersifat fleksibel: mudah diakses, cepat diedit, dan dapat disebarkan luas dalam waktu singkat."
+      },
+      {
+        num: 3,
+        question: "Kelompok konten digital berikut ini yang seluruhnya bersifat statis adalah...",
+        options: {
+          A: "Artikel blog dan komik digital",
+          B: "Podcast dan video tutorial",
+          C: "Animasi dan rekaman musik",
+          D: "Vlog dan slide presentasi bersuara"
+        },
+        answer: "A",
+        explanation: "Teks (artikel blog) dan gambar (komik digital) merupakan konten statis (tidak bergerak/bersuara)."
+      },
+      {
+        num: 4,
+        question: "Kamu ingin menjelaskan data jumlah pengguna internet di Indonesia dalam satu halaman poster agar ringkas, visual, dan mudah dipahami pembaca. Jenis konten digital yang paling tepat kamu buat adalah...",
+        options: {
+          A: "Audio narasi",
+          B: "Artikel teks panjang",
+          C: "Infografik",
+          D: "Rekaman podcast"
+        },
+        answer: "C",
+        explanation: "Infografik menggabungkan teks dan visual untuk menyajikan data atau informasi secara ringkas dan menarik."
+      },
+      {
+        num: 5,
+        question: "Saat berdiskusi di kolom komentar media sosial, Dito selalu menggunakan bahasa yang santun dan tidak menghina pendapat orang lain yang berbeda dengannya. Sikap Dito mencerminkan prinsip etika digital, yaitu...",
+        options: {
+          A: "Kejujuran dan privasi",
+          B: "Sopan santun dan menghormati orang lain",
+          C: "Hak cipta dan kreativitas",
+          D: "Tanggung jawab dan komersial"
+        },
+        answer: "B",
+        explanation: "Menggunakan bahasa yang baik dan tidak menyerang orang lain termasuk prinsip sopan santun dan menghormati orang lain."
+      },
+      {
+        num: 6,
+        question: "Seseorang menerima pesan berantai berisi berita yang belum jelas kebenarannya, lalu langsung membagikannya ke banyak grup tanpa mengecek fakta terlebih dahulu. Pelanggaran etika digital yang terjadi pada kasus tersebut adalah...",
+        options: {
+          A: "Pelanggaran hak cipta",
+          B: "Penyebaran berita bohong (hoaks)",
+          C: "Pencurian data pribadi",
+          D: "Peretasan akun"
+        },
+        answer: "B",
+        explanation: "Membagikan informasi palsu atau belum terverifikasi termasuk penyebaran hoaks."
+      },
+      {
+        num: 7,
+        question: "Mengapa kita dilarang mengunggah foto teman ke media sosial tanpa meminta izin terlebih dahulu?",
+        options: {
+          A: "Karena ukuran file foto terlalu besar",
+          B: "Karena melanggar privasi dan dapat membuat teman merasa tidak nyaman atau malu",
+          C: "Karena aplikasi media sosial melarang unggahan foto bersama",
+          D: "Karena foto tersebut otomatis menjadi milik publik"
+        },
+        answer: "B",
+        explanation: "Mengunggah foto orang lain tanpa izin melanggar prinsip privasi dan dapat membuat teman malu atau tidak nyaman."
+      },
+      {
+        num: 8,
+        question: "Hak khusus yang dimiliki oleh pencipta suatu karya untuk mengatur siapa saja yang boleh menggunakan dan menyebarkan karyanya disebut...",
+        options: {
+          A: "Lisensi publik",
+          B: "Etika digital",
+          C: "Hak cipta (copyright)",
+          D: "Jejak digital"
+        },
+        answer: "C",
+        explanation: "Hak cipta (copyright) melindungi pencipta agar karyanya tidak digunakan tanpa izin."
+      },
+      {
+        num: 9,
+        question: "Manakah di antara situs berikut yang menyediakan gambar berlisensi bebas (Creative Commons) sehingga boleh digunakan secara gratis dan legal dengan mencantumkan sumber?",
+        options: {
+          A: "Pixabay dan Unsplash",
+          B: "TikTok dan Instagram",
+          C: "WhatsApp dan Telegram",
+          D: "Google Docs dan PowerPoint"
+        },
+        answer: "A",
+        explanation: "Pixabay, Unsplash, dan Pexels menyediakan aset visual gratis berlisensi Creative Commons."
+      },
+      {
+        num: 10,
+        question: "Budi mengunduh foto pemandangan dari situs Pexels yang dibuat oleh kreator bernama RakaArt pada tahun 2025. Cara penulisan sumber yang paling tepat pada tugas presentasi Budi adalah...",
+        options: {
+          A: "Sumber: Internet/Google (2025)",
+          B: "Foto oleh Budi/Pexels.com",
+          C: "RakaArt/Pexels.com (2025)",
+          D: "Diunduh gratis tanpa hak cipta"
+        },
+        answer: "C",
+        explanation: "Format penulisan sumber yang benar adalah Nama Pembuat/Nama Situs (Tahun)."
+      }
+    ];
+
+    // State Utama Aplikasi
+    let currentPage = 0;
+    let fontSizeLevel = 0; // -1, 0, +1
+    const STORAGE_KEY = "kka_kelas7_ebook_state_v1";
+    const GAS_URL_STORAGE_KEY = "kka_kelas7_gas_url_v1";
+
+    let appState = {
+      nama: "",
+      kelas: "",
+      absen: "",
+      t1_q1: "",
+      t1_q2: "",
+      t1_q3: "",
+      misi1_judul: "",
+      misi1_tujuan: "",
+      misi1_analisis: "",
+      misi2_kasusA: "",
+      misi2_kasusB: "",
+      misi3_sitasi: "",
+      quizAnswers: {} // { 1: "B", 2: "C", ... }
+    };
+
+    // -----------------------------------------------------------------------
+    // 2. INISIALISASI SAAT HALAMAN DIMUAT
+    // -----------------------------------------------------------------------
+    window.addEventListener("DOMContentLoaded", () => {
+      loadSavedState();
+      renderQuizQuestions();
+      renderNavigationDots();
+      renderTocList();
+      bindInputListeners();
+      updateGasStatusBanner();
+      goToPage(0);
+    });
+
+    // Mendapatkan URL GAS aktif (prioritas: parameter URL ?gas=... -> DEFAULT_GAS_URL -> localStorage)
+    function getActiveGasUrl() {
+      const params = new URLSearchParams(window.location.search);
+      const paramUrl = params.get("gas");
+      if (paramUrl && paramUrl.startsWith("http")) return paramUrl.trim();
+      if (typeof DEFAULT_GAS_URL === "string" && DEFAULT_GAS_URL.trim().startsWith("http")) {
+        return DEFAULT_GAS_URL.trim();
+      }
+      const savedUrl = localStorage.getItem(GAS_URL_STORAGE_KEY);
+      return savedUrl ? savedUrl.trim() : "";
+    }
+
+    // -----------------------------------------------------------------------
+    // 3. NAVIGASI HALAMAN BUKU ELEKTRONIK
+    // -----------------------------------------------------------------------
+    function goToPage(pageIndex) {
+      if (pageIndex < 0 || pageIndex >= BOOK_PAGES.length) return;
+      currentPage = pageIndex;
+
+      // Sembunyikan semua section halaman, tampilkan yang aktif
+      document.querySelectorAll(".book-page").forEach((el, idx) => {
+        if (idx === currentPage) {
+          el.classList.remove("hidden");
+          el.classList.remove("page-enter");
+          void el.offsetWidth; // trigger reflow untuk animasi ulang
+          el.classList.add("page-enter");
+        } else {
+          el.classList.add("hidden");
+        }
+      });
+
+      // Perbarui header & progress bar
+      const pct = ((currentPage + 1) / BOOK_PAGES.length) * 100;
+      document.getElementById("progress-bar").style.width = `${pct}%`;
+      document.getElementById("page-badge").textContent = `Halaman ${currentPage + 1} dari ${BOOK_PAGES.length}`;
+      document.getElementById("page-chapter-label").textContent = BOOK_PAGES[currentPage].title;
+
+      // Perbarui tombol Sebelumnya / Berikutnya
+      document.getElementById("btn-prev-page").disabled = currentPage === 0;
+      const nextBtn = document.getElementById("btn-next-page");
+      if (currentPage === BOOK_PAGES.length - 1) {
+        nextBtn.classList.add("hidden");
+      } else {
+        nextBtn.classList.remove("hidden");
+      }
+
+      // Perbarui titik navigasi
+      document.querySelectorAll(".page-dot").forEach((dot, idx) => {
+        if (idx === currentPage) {
+          dot.className = "page-dot w-6 h-2.5 rounded-full bg-indigo-600 transition-all cursor-pointer";
+        } else {
+          dot.className = "page-dot w-2.5 h-2.5 rounded-full bg-slate-300 dark:bg-slate-700 hover:bg-indigo-400 transition-all cursor-pointer";
+        }
+      });
+
+      // Jika masuk halaman terakhir (Halaman 6), perbarui daftar kelengkapan
+      if (currentPage === 6) {
+        renderSubmissionChecklist();
+        updateGasStatusBanner();
+      }
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function navigatePage(delta) {
+      goToPage(currentPage + delta);
+    }
+
+    function renderNavigationDots() {
+      const container = document.getElementById("page-dots-container");
+      container.innerHTML = BOOK_PAGES.map(
+        (p) => `<button type="button" onclick="goToPage(${p.id})" class="page-dot" title="${p.title}" aria-label="${p.title}"></button>`
+      ).join("");
+    }
+
+    function renderTocList() {
+      const list = document.getElementById("toc-list");
+      list.innerHTML = BOOK_PAGES.map(
+        (p) => `
+          <button type="button" onclick="goToPage(${p.id}); toggleTocModal(false);"
+            class="w-full text-left px-4 py-3 rounded-2xl hover:bg-indigo-50 dark:hover:bg-indigo-950/50 border border-slate-200/80 dark:border-slate-800 flex items-center justify-between transition">
+            <div>
+              <span class="text-[11px] font-bold uppercase text-indigo-600 dark:text-indigo-400">Halaman ${p.id + 1}</span>
+              <p class="text-sm font-semibold">${p.title}</p>
+            </div>
+            <span class="text-slate-400 text-sm">→</span>
+          </button>
+        `
+      ).join("");
+    }
+
+    function toggleTocModal(show) {
+      const modal = document.getElementById("toc-modal");
+      modal.classList.toggle("hidden", !show);
+    }
+
+    // -----------------------------------------------------------------------
+    // 4. FITUR INTERAKTIVITAS BACAAN (TEMA, FONT, KARTU MATERI)
+    // -----------------------------------------------------------------------
+    function toggleDarkMode() {
+      document.documentElement.classList.toggle("dark");
+    }
+
+    function changeFontSize(dir) {
+      if (dir === 0) fontSizeLevel = 0;
+      else fontSizeLevel = Math.max(-1, Math.min(2, fontSizeLevel + dir));
+
+      const wrapper = document.getElementById("book-pages-wrapper");
+      wrapper.classList.remove("text-sm", "text-base", "text-lg", "text-xl");
+      if (fontSizeLevel === -1) wrapper.classList.add("text-sm");
+      if (fontSizeLevel === 0) wrapper.classList.add("text-base");
+      if (fontSizeLevel === 1) wrapper.classList.add("text-lg");
+      if (fontSizeLevel === 2) wrapper.classList.add("text-xl");
+      showToast("Ukuran huruf bacaan diperbarui.", "info");
+    }
+
+    function toggleCardDetail(cardBtn) {
+      const extra = cardBtn.querySelector(".card-extra");
+      if (extra) {
+        extra.classList.toggle("hidden");
+      }
+    }
+
+    function validateCitationFormat(val) {
+      const hint = document.getElementById("citation-hint");
+      const trimmed = val.trim();
+      if (!trimmed) {
+        hint.textContent = "💡 Tip: Pastikan menyertakan garis miring (/) nama situs dan tahun di dalam tanda kurung.";
+        hint.className = "text-xs text-slate-500 dark:text-slate-400 mt-1.5";
+        return;
+      }
+      const hasSlash = trimmed.includes("/");
+      const hasYear = /\(\d{4}\)/.test(trimmed);
+      if (hasSlash && hasYear) {
+        hint.textContent = "✅ Format sitasi sudah sesuai pola Nama Pembuat/Nama Situs (Tahun)!";
+        hint.className = "text-xs text-emerald-600 dark:text-emerald-400 font-semibold mt-1.5";
+      } else {
+        hint.textContent = "⚠️ Hampir tepat! Pastikan ada tanda '/' pemisah nama situs dan '(Tahun)', contoh: nama/Pixabay.com (2025)";
+        hint.className = "text-xs text-amber-600 dark:text-amber-400 font-medium mt-1.5";
+      }
+    }
+
+    // -----------------------------------------------------------------------
+    // 5. RENDER & LOGIKA KUIS FORMATIF (10 SOAL)
+    // -----------------------------------------------------------------------
+    function renderQuizQuestions() {
+      const container = document.getElementById("quiz-questions-container");
+      container.innerHTML = QUIZ_QUESTIONS.map((q) => {
+        const selected = appState.quizAnswers[q.num] || "";
+        const optionsHtml = Object.entries(q.options)
+          .map(([key, text]) => {
+            const isChecked = selected === key;
+            return `
+              <label class="flex items-start gap-3 p-3.5 rounded-xl border cursor-pointer transition select-none
+                ${isChecked
+                  ? "bg-indigo-50 dark:bg-indigo-950/50 border-indigo-500 ring-1 ring-indigo-500"
+                  : "bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-700"}">
+                <input type="radio" name="quiz_q_${q.num}" value="${key}" ${isChecked ? "checked" : ""}
+                  onchange="selectQuizOption(${q.num}, '${key}')"
+                  class="mt-1 w-4 h-4 text-indigo-600 focus:ring-indigo-500" />
+                <span class="text-xs sm:text-sm leading-snug">
+                  <strong class="mr-1.5">${key}.</strong> ${text}
+                </span>
+              </label>
+            `;
+          })
+          .join("");
+
+        return `
+          <div class="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
+            <p class="font-semibold text-sm sm:text-base mb-3 leading-relaxed">
+              <span class="inline-block px-2 py-0.5 mr-1.5 rounded-md bg-indigo-600 text-white text-xs font-bold">${q.num}</span>
+              ${q.question}
+            </p>
+            <div class="grid grid-cols-1 gap-2.5">
+              ${optionsHtml}
+            </div>
+          </div>
+        `;
+      }).join("");
+
+      updateQuizCounter();
+    }
+
+    function selectQuizOption(questionNum, optionKey) {
+      appState.quizAnswers[questionNum] = optionKey;
+      saveStateToLocal();
+      renderQuizQuestions();
+    }
+
+    function updateQuizCounter() {
+      const count = Object.keys(appState.quizAnswers).length;
+      const el = document.getElementById("quiz-answered-count");
+      if (el) el.textContent = count;
+    }
+
+    // -----------------------------------------------------------------------
+    // 6. PENYIMPANAN OTOMATIS LOKAL (LOCALSTORAGE)
+    // -----------------------------------------------------------------------
+    function bindInputListeners() {
+      document.querySelectorAll("[data-field]").forEach((input) => {
+        const field = input.getAttribute("data-field");
+        if (appState[field] !== undefined) {
+          input.value = appState[field];
+        }
+        input.addEventListener("input", (e) => {
+          appState[field] = e.target.value;
+          saveStateToLocal();
+        });
+      });
+    }
+
+    function saveStateToLocal() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
+        const statusEl = document.getElementById("autosave-status");
+        if (statusEl) {
+          statusEl.textContent = "Tersimpan otomatis (" + new Date().toLocaleTimeString("id-ID", { hour: "2-digit", minute: "2-digit" }) + ")";
+        }
+      } catch (e) {
+        // Abaikan jika private mode membatasi localStorage
+      }
+    }
+
+    function loadSavedState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          appState = { ...appState, ...parsed };
+        }
+      } catch (e) {
+        // Abaikan error parsing
+      }
+    }
+
+    // -----------------------------------------------------------------------
+    // 7. CHECKLIST KELENGKAPAN & PENGIRIMAN KE GOOGLE APPS SCRIPT (GAS)
+    // -----------------------------------------------------------------------
+    function renderSubmissionChecklist() {
+      const isIdentityOk = appState.nama.trim() && appState.kelas.trim() && String(appState.absen).trim();
+      const isTahap1Ok = appState.t1_q1.trim() && appState.t1_q2.trim() && appState.t1_q3.trim();
+      const isMisiOk =
+        appState.misi1_judul.trim() &&
+        appState.misi1_tujuan.trim() &&
+        appState.misi1_analisis.trim() &&
+        appState.misi2_kasusA.trim() &&
+        appState.misi2_kasusB.trim() &&
+        appState.misi3_sitasi.trim();
+      const quizCount = Object.keys(appState.quizAnswers).length;
+      const isQuizOk = quizCount === QUIZ_QUESTIONS.length;
+
+      const items = [
+        {
+          label: "Identitas Siswa (Nama, Kelas, No. Absen)",
+          ok: Boolean(isIdentityOk),
+          page: 0,
+          detail: isIdentityOk ? `${appState.nama} (${appState.kelas} / Absen ${appState.absen})` : "Belum lengkap"
+        },
+        {
+          label: "Tahap 1: Pemanasan & Refleksi Awal (3 Pertanyaan)",
+          ok: Boolean(isTahap1Ok),
+          page: 1,
+          detail: isTahap1Ok ? "Sudah diisi" : "Ada pertanyaan belum diisi"
+        },
+        {
+          label: "Tahap 3: Tantangan Mandiri (Misi 1, Misi 2, Misi 3)",
+          ok: Boolean(isMisiOk),
+          page: 4,
+          detail: isMisiOk ? "Semua misi terisi" : "Ada kolom misi belum diisi"
+        },
+        {
+          label: "Tahap 4: Kuis Formatif (10 Soal Pilihan Ganda)",
+          ok: isQuizOk,
+          page: 5,
+          detail: `${quizCount}/10 soal terjawab`
+        }
+      ];
+
+      document.getElementById("submission-checklist").innerHTML = items
+        .map(
+          (item) => `
+          <div class="flex items-center justify-between gap-2 p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">
+            <div class="flex items-center gap-2.5">
+              <span class="text-base">${item.ok ? "✅" : "⚠️"}</span>
+              <div>
+                <p class="font-semibold text-xs sm:text-sm">${item.label}</p>
+                <p class="text-xs text-slate-500 dark:text-slate-400">${item.detail}</p>
+              </div>
+            </div>
+            <button type="button" onclick="goToPage(${item.page})" class="px-2.5 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 text-xs font-semibold shrink-0">
+              Buka
+            </button>
+          </div>
+        `
+        )
+        .join("");
+    }
+
+    function updateGasStatusBanner() {
+      const banner = document.getElementById("gas-status-banner");
+      if (!banner) return;
+      const gasUrl = getActiveGasUrl();
+
+      if (gasUrl) {
+        banner.className = "p-4 rounded-2xl mb-6 text-xs sm:text-sm flex items-start gap-3 border bg-emerald-50/80 dark:bg-emerald-950/30 border-emerald-200 dark:border-emerald-800/60 text-emerald-900 dark:text-emerald-200";
+        banner.innerHTML = `
+          <span class="text-lg">🟢</span>
+          <div>
+            <p class="font-bold">Database Spreadsheet Guru Terhubung</p>
+            <p class="text-xs opacity-90 mt-0.5">Jawabanmu akan otomatis dikirim ke folder <strong>Data Siswa kelas 7 Etika Digital</strong> → Spreadsheet <strong>Data Siswa ASINKRONUS</strong>.</p>
+          </div>
+        `;
+      } else {
+        banner.className = "p-4 rounded-2xl mb-6 text-xs sm:text-sm flex items-start gap-3 border bg-amber-50/90 dark:bg-amber-950/30 border-amber-300 dark:border-amber-800/60 text-amber-900 dark:text-amber-200";
+        banner.innerHTML = `
+          <span class="text-lg">🟡</span>
+          <div>
+            <p class="font-bold">Mode Pratinjau / URL Database GAS Belum Dipasang</p>
+            <p class="text-xs opacity-90 mt-0.5">Kamu tetap bisa menghitung nilai kuis & mengunduh bukti jawaban. Bagi Bapak/Ibu Guru, klik tombol <strong>Database Guru</strong> di kanan atas untuk menempelkan URL Google Apps Script.</p>
+          </div>
+        `;
+      }
+    }
+
+    function calculateQuizResult() {
+      let correctCount = 0;
+      const detailList = [];
+      const reviewItems = [];
+
+      QUIZ_QUESTIONS.forEach((q) => {
+        const userAns = appState.quizAnswers[q.num] || "-";
+        const isCorrect = userAns === q.answer;
+        if (isCorrect) correctCount++;
+
+        detailList.push(`Q${q.num}:${userAns}(${isCorrect ? "Benar" : "Salah"})`);
+        reviewItems.push({
+          num: q.num,
+          userAns,
+          correctAns: q.answer,
+          isCorrect,
+          explanation: q.explanation
+        });
+      });
+
+      const score = correctCount * 10;
+      return {
+        score,
+        correctCount,
+        jumlahBenarStr: `${correctCount}/10`,
+        detailStr: detailList.join(", "),
+        reviewItems
+      };
+    }
+
+    async function submitModuleData() {
+      // Validasi identitas wajib
+      if (!appState.nama.trim() || !appState.kelas.trim() || !String(appState.absen).trim()) {
+        showToast("Mohon lengkapi Nama Lengkap, Kelas, dan Nomor Absen di Halaman 1 terlebih dahulu!", "error");
+        goToPage(0);
+        return;
+      }
+
+      // Validasi semua soal kuis terjawab
+      const answeredCount = Object.keys(appState.quizAnswers).length;
+      if (answeredCount < QUIZ_QUESTIONS.length) {
+        showToast(`Masih ada ${QUIZ_QUESTIONS.length - answeredCount} soal kuis yang belum dijawab. Yuk lengkapi dulu!`, "error");
+        goToPage(5);
+        return;
+      }
+
+      const btn = document.getElementById("btn-submit-all");
+      const originalHtml = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = `<span>⏳ Sedang memproses & mengirim data...</span>`;
+
+      const quizResult = calculateQuizResult();
+      const payload = {
+        nama: appState.nama.trim(),
+        kelas: appState.kelas.trim(),
+        absen: String(appState.absen).trim(),
+        skorKuis: quizResult.score,
+        jumlahBenar: quizResult.jumlahBenarStr,
+        t1_q1: appState.t1_q1.trim(),
+        t1_q2: appState.t1_q2.trim(),
+        t1_q3: appState.t1_q3.trim(),
+        misi1_judul: appState.misi1_judul.trim(),
+        misi1_tujuan: appState.misi1_tujuan.trim(),
+        misi1_analisis: appState.misi1_analisis.trim(),
+        misi2_kasusA: appState.misi2_kasusA.trim(),
+        misi2_kasusB: appState.misi2_kasusB.trim(),
+        misi3_sitasi: appState.misi3_sitasi.trim(),
+        detailKuis: quizResult.detailStr
+      };
+
+      const gasUrl = getActiveGasUrl();
+      let dbStatusNote = "Nilai berhasil dihitung secara lokal (URL Database GAS belum dikonfigurasi).";
+
+      if (gasUrl) {
+        try {
+          // Menggunakan text/plain agar terhindar dari preflight CORS di Google Apps Script
+          await fetch(gasUrl, {
+            method: "POST",
+            mode: "no-cors",
+            headers: {
+              "Content-Type": "text/plain;charset=utf-8"
+            },
+            body: JSON.stringify(payload)
+          });
+          dbStatusNote = "Terkirim ke Google Spreadsheet (Data Siswa ASINKRONUS) pada folder Data Siswa kelas 7 Etika Digital!";
+          showToast("Berhasil! Semua jawaban dan nilai kuis telah dikirim ke spreadsheet guru.", "success");
+        } catch (err) {
+          dbStatusNote = "Gagal terhubung ke server GAS, namun nilai telah dihitung. Silakan unduh bukti (.txt) sebagai cadangan.";
+          showToast("Koneksi ke database terganggu. Unduh file bukti (.txt) untuk diserahkan ke guru.", "error");
+        }
+      } else {
+        showToast("Nilai kuis berhasil dihitung! Pasang URL GAS di menu Database Guru untuk rekam otomatis ke Spreadsheet.", "info");
+      }
+
+      // Tampilkan Panel Rapor & Pembahasan Kuis
+      renderStudentReport(payload, quizResult, dbStatusNote);
+
+      btn.disabled = false;
+      btn.innerHTML = originalHtml;
+    }
+
+    function renderStudentReport(payload, quizResult, dbStatusNote) {
+      const panel = document.getElementById("result-report-panel");
+      panel.classList.remove("hidden");
+
+      document.getElementById("report-student-name").textContent = `${payload.nama} — Kelas ${payload.kelas} (Absen ${payload.absen})`;
+      document.getElementById("report-submission-note").textContent = dbStatusNote;
+      document.getElementById("report-score-value").textContent = quizResult.score;
+      document.getElementById("report-correct-count").textContent = `${quizResult.jumlahBenarStr} Benar`;
+
+      document.getElementById("report-quiz-review").innerHTML = quizResult.reviewItems
+        .map(
+          (item) => `
+          <div class="p-3 rounded-xl bg-white/90 dark:bg-slate-900/90 border ${item.isCorrect ? "border-emerald-200 dark:border-emerald-800/60" : "border-rose-200 dark:border-rose-800/60"}">
+            <div class="flex items-center justify-between font-semibold mb-1">
+              <span>Soal #${item.num} — Jawabanmu: <strong>${item.userAns}</strong></span>
+              <span class="${item.isCorrect ? "text-emerald-600 dark:text-emerald-400" : "text-rose-600 dark:text-rose-400"}">
+                ${item.isCorrect ? "✓ Benar" : `✕ Kurang Tepat (Kunci: ${item.correctAns})`}
+              </span>
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-400">${item.explanation}</p>
+          </div>
+        `
+        )
+        .join("");
+
+      panel.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function downloadBackupText() {
+      const quizResult = calculateQuizResult();
+      const lines = [
+        "==========================================================",
+        "BUKTI PENGERJAAN MODUL BELAJAR MANDIRI (ASINKRONUS)",
+        "Mapel: Koding dan Kecerdasan Artifisial - Kelas VII",
+        "Bab 2: Literasi Digital untuk Kreasi Konten",
+        "==========================================================",
+        `Waktu Unduh   : ${new Date().toLocaleString("id-ID")}`,
+        `Nama Lengkap  : ${appState.nama || "-"}`,
+        `Kelas         : ${appState.kelas || "-"}`,
+        `Nomor Absen   : ${appState.absen || "-"}`,
+        `Skor Kuis     : ${quizResult.score} (${quizResult.jumlahBenarStr} Benar)`,
+        "",
+        "--- TAHAP 1: PEMANASAN & REFLEKSI AWAL ---",
+        `1. Aplikasi Favorit : ${appState.t1_q1 || "-"}`,
+        `2. Konten Menarik   : ${appState.t1_q2 || "-"}`,
+        `3. Sumber Gambar    : ${appState.t1_q3 || "-"}`,
+        "",
+        "--- TAHAP 3: TANTANGAN MANDIRI (MISI KREATOR BIJAK) ---",
+        `Misi 1 (Judul/Jenis): ${appState.misi1_judul || "-"}`,
+        `Misi 1 (Tujuan/Aud) : ${appState.misi1_tujuan || "-"}`,
+        `Misi 1 (Plus/Minus) : ${appState.misi1_analisis || "-"}`,
+        `Misi 2 (Kasus A)    : ${appState.misi2_kasusA || "-"}`,
+        `Misi 2 (Kasus B)    : ${appState.misi2_kasusB || "-"}`,
+        `Misi 3 (Sitasi)     : ${appState.misi3_sitasi || "-"}`,
+        "",
+        "--- TAHAP 4: DETAIL JAWABAN KUIS ---",
+        quizResult.detailStr,
+        "=========================================================="
+      ];
+
+      const blob = new Blob([lines.join("\n")], { type: "text/plain;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      const safeName = (appState.nama || "Siswa").replace(/[^a-zA-Z0-9]/g, "_");
+      a.download = `Bukti_Modul_EtikaDigital_${safeName}.txt`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast("File bukti pengerjaan (.txt) berhasil diunduh!", "success");
+    }
+
+    // -----------------------------------------------------------------------
+    // 8. PANEL PENGATURAN DATABASE GURU (COPY GAS, TEST & EXPORT HTML)
+    // -----------------------------------------------------------------------
+    function toggleTeacherModal(show) {
+      const modal = document.getElementById("teacher-modal");
+      modal.classList.toggle("hidden", !show);
+      if (show) {
+        document.getElementById("teacher-gas-url-input").value = getActiveGasUrl();
+      }
+    }
+
+    function copyGasScript() {
+      const codeText = document.getElementById("gas-code-block").textContent;
+      const tempTextarea = document.createElement("textarea");
+      tempTextarea.value = codeText;
+      tempTextarea.style.position = "fixed";
+      tempTextarea.style.left = "-9999px";
+      document.body.appendChild(tempTextarea);
+      tempTextarea.select();
+      try {
+        document.execCommand("copy");
+        showToast("Kode Google Apps Script berhasil disalin ke clipboard!", "success");
+      } catch (err) {
+        showToast("Gagal menyalin otomatis. Silakan blok teks kode dan tekan Ctrl+C.", "error");
+      }
+      document.body.removeChild(tempTextarea);
+    }
+
+    async function saveAndTestGasUrl() {
+      const input = document.getElementById("teacher-gas-url-input");
+      const url = input.value.trim();
+      if (!url || !url.startsWith("https://script.google.com/")) {
+        showToast("Masukkan URL Web App Google Apps Script yang valid (diawali https://script.google.com/...).", "error");
+        return;
+      }
+
+      localStorage.setItem(GAS_URL_STORAGE_KEY, url);
+      updateGasStatusBanner();
+
+      // Kirim ping pengujian agar folder & spreadsheet langsung terbentuk di Drive guru
+      const testPayload = {
+        nama: "[TES KONEKSI GURU]",
+        kelas: "ADMIN",
+        absen: "0",
+        skorKuis: 100,
+        jumlahBenar: "10/10",
+        t1_q1: "Uji coba otomatis pembuatan folder & spreadsheet",
+        t1_q2: "-",
+        t1_q3: "-",
+        misi1_judul: "-",
+        misi1_tujuan: "-",
+        misi1_analisis: "-",
+        misi2_kasusA: "-",
+        misi2_kasusB: "-",
+        misi3_sitasi: "Tes/Pixabay.com (2025)",
+        detailKuis: "TES_KONEKSI_OK"
+      };
+
+      try {
+        await fetch(url, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify(testPayload)
+        });
+        showToast("URL tersimpan & sinyal tes terkirim! Cek folder 'Data Siswa kelas 7 Etika Digital' di Google Drive Anda.", "success");
+      } catch (err) {
+        showToast("URL tersimpan, namun gagal mengirim tes koneksi. Pastikan akses Web App disetel ke 'Anyone / Siapa saja'.", "error");
+      }
+    }
+
+    function downloadConfiguredHtml() {
+      const input = document.getElementById("teacher-gas-url-input");
+      const url = input.value.trim();
+      if (!url || !url.startsWith("https://script.google.com/")) {
+        showToast("Tempelkan URL Web App GAS terlebih dahulu sebelum mengunduh file siap bagikan.", "error");
+        return;
+      }
+
+      localStorage.setItem(GAS_URL_STORAGE_KEY, url);
+
+      // Ambil seluruh HTML dokumen saat ini dan tanamkan DEFAULT_GAS_URL
+      let fullHtml = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+      fullHtml = fullHtml.replace(
+        /const DEFAULT_GAS_URL = ".*?";/,
+        `const DEFAULT_GAS_URL = "${url}";`
+      );
+
+      const blob = new Blob([fullHtml], { type: "text/html;charset=utf-8" });
+      const blobUrl = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = blobUrl;
+      a.download = "EBook_Interaktif_Etika_Digital_Kelas7_SiapBagikan.html";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(blobUrl);
+
+      showToast("File HTML terkonfigurasi berhasil diunduh! File ini siap dibagikan ke siswa.", "success");
+    }
+
+    // -----------------------------------------------------------------------
+    // 9. SISTEM NOTIFIKASI TOAST (PENGGANTI ALERT)
+    // -----------------------------------------------------------------------
+    function showToast(message, type = "info") {
+      const container = document.getElementById("toast-container");
+      const toast = document.createElement("div");
+
+      let bgClass = "bg-slate-900 text-white border-slate-700";
+      let icon = "ℹ️";
+      if (type === "success") {
+        bgClass = "bg-emerald-700 text-white border-emerald-500";
+        icon = "✅";
+      } else if (type === "error") {
+        bgClass = "bg-rose-700 text-white border-rose-500";
+        icon = "⚠️";
+      }
+
+      toast.className = `pointer-events-auto p-3.5 rounded-2xl border shadow-xl text-xs sm:text-sm font-medium flex items-start gap-2.5 transition-all duration-300 ${bgClass}`;
+      toast.innerHTML = `<span>${icon}</span><span class="leading-snug">${message}</span>`;
+
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = "0";
+        toast.style.transform = "translateY(8px)";
+        setTimeout(() => toast.remove(), 300);
+      }, 4200);
+    }
+  </script>
+
+</body></html>
